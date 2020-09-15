@@ -1,18 +1,8 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.main')
 
-        <title>Plantr</title>
+@section('title','Home')
 
-        <style>
-            body {
-                font-family: 'Nunito';
-            }
-        </style>
-    </head>
-    <body>
+@section('content')
     <h1>Plantr 2.0</h1>
-    </body>
-</html>
+    <a href="{{route('login')}}">Login</a>
+@endsection

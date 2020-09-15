@@ -3,6 +3,7 @@
 use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,12 +18,15 @@ use Illuminate\Support\Facades\View;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
 
 Route::get('/login', [LoginController::class, 'showLogin'])->name('login');
 
 Route::post('/login', [LoginController::class, 'tryLogin']);
 
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+
 Route::get('/dashboard', function () {
-    return View::make('dashboard');
-})->middleware('auth');
+    return View::make('dashboard',['name'=>Auth::user()->name]);
+})->middleware('auth')->name('dashboard');
+ 

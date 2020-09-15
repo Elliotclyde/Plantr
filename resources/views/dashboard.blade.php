@@ -1,19 +1,12 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.main')
 
-        <title>Plantr Dashboard</title>
+@section('title', 'Dashboard')
 
-        <style>
-            body {
-                font-family: 'Nunito';
-            }
-        </style>
-    </head>
-    <body>
     <h1>Plantr 2.0 Dashboard</h1>
+    <p>Welcome, {{$name}}</p>
 
-    </body>
-</html>
+
+    <a class="log-out-btn" href="#" onclick="event.preventDefault();document.getElementById('logout-form').submit();"> Logout </a>
+    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+         {{ csrf_field() }}
+ </form>

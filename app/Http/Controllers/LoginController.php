@@ -14,10 +14,15 @@ class LoginController extends Controller
     public function tryLogin(Request $request){
         $credentials = $request->only('username', 'password');
         if (Auth::attempt($credentials)) {
-            return redirect('/dashboard');
+            return redirect()->route('dashboard');
         }
         else{
            return "I'm sorry but those details are wrong";
         }
+    }
+    public function logout()
+    {
+        Auth::logout();
+        return redirect()->route('welcome');
     }
 }
