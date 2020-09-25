@@ -1,9 +1,11 @@
 <?php
 
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\PlantController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Plant;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +29,11 @@ Route::post('/login', [LoginController::class, 'tryLogin']);
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::get('/dashboard', function () {
-    return View::make('dashboard',['name'=>Auth::user()->name]);
+    $user = Auth::user();
+    return View::make('dashboard',['plants'=>$user->plants,'name'=>$user->name]);
 })->middleware('auth')->name('dashboard');
+ 
+Route::get('/newplant',[PlantController::class,'create'])->middleware('auth')->name('newplant');
+
+Route::post('/newplant', [PlantController::class,'store'])->middleware('auth')->name('newplant');
  
