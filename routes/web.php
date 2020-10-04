@@ -37,3 +37,4 @@ Route::get('/newplant',[PlantController::class,'create'])->middleware('auth')->n
 
 Route::post('/newplant', [PlantController::class,'store'])->middleware('auth')->name('newplant');
  
+Route::get('/plantdetails/{plantId}', [PlantController::class,'show'])->middleware('auth')->name('showplant');

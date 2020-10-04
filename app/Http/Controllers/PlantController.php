@@ -24,4 +24,7 @@ class PlantController extends Controller
         
         return redirect()->route('dashboard');
     }
+    public function show($plantId){
+        return View::make('plantdetails',['plant'=>Plant::find($plantId)]);
+    }
 }
