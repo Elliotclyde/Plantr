@@ -13,7 +13,7 @@
         <h3>{{$plant->quantity}} {{$plant->type}}</h3>
         <p>Planted on: {{$plant->planted}}</p>
         <p>Planting type: {{$plant->propogation_type}}</p>
-        <a href="{{route('showplant', ['plantId'=>$plant->id])}}">Details</a>
+        <a href="{{route('showplant', ['plant'=>$plant->id])}}">Details</a>
         </div>
         @endforeach
     </div>

@@ -24,7 +24,11 @@ class PlantController extends Controller
         
         return redirect()->route('dashboard');
     }
-    public function show($plantId){
-        return View::make('plantdetails',['plant'=>Plant::find($plantId)]);
+    public function show(Plant $plant){
+        return View::make('plantdetails',['plant'=>$plant]);
+    }
+    public function destroy(Plant $plant){
+        Plant::destroy($plant->id);
+        return redirect()->route('dashboard');
     }
 }

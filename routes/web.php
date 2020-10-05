@@ -23,7 +23,6 @@ Route::get('/', function () {
 })->name('welcome');
 
 Route::get('/login', [LoginController::class, 'showLogin'])->name('login');
-
 Route::post('/login', [LoginController::class, 'tryLogin']);
 
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
@@ -32,9 +31,13 @@ Route::get('/dashboard', function () {
     $user = Auth::user();
     return View::make('dashboard',['plants'=>$user->plants,'name'=>$user->name]);
 })->middleware('auth')->name('dashboard');
- 
-Route::get('/newplant',[PlantController::class,'create'])->middleware('auth')->name('newplant');
 
-Route::post('/newplant', [PlantController::class,'store'])->middleware('auth')->name('newplant');
+Route::middleware(['auth'])->group(function(){
+
+    Route::get('/newplant',[PlantController::class,'create'])->name('newplant');
+    Route::post('/newplant', [PlantController::class,'store'])->name('newplant');
+    Route::get('/plant/{plant}', [PlantController::class,'show'])->name('showplant');
+    Route::delete('plant/{plant}',[PlantController::class,'destroy'])->name('deleteplant');
+
+});
  
-Route::get('/plantdetails/{plantId}', [PlantController::class,'show'])->middleware('auth')->name('showplant');
