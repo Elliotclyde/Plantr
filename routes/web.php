@@ -38,6 +38,6 @@ Route::middleware(['auth'])->group(function(){
     Route::post('/newplant', [PlantController::class,'store'])->name('newplant');
     Route::get('/plant/{plant}', [PlantController::class,'show'])->name('showplant');
     Route::delete('plant/{plant}',[PlantController::class,'destroy'])->name('deleteplant');
-
+    Route::post('transplant/{plant}',[PlantController::class,'transplant'])->name('transplant');
 });
  

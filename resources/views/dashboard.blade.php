@@ -10,9 +10,12 @@
     <div class="plants">
         @foreach($plants as $plant)
         <div class="plant-container">
-        <h3>{{$plant->quantity}} {{$plant->type}}</h3>
+        <h3>{{$plant->quantity}} {{ucfirst($plant->type)}}</h3>
         <p>Planted on: {{$plant->planted}}</p>
         <p>Planting type: {{$plant->propogation_type}}</p>
+            @if(isset($plant->transplanted))
+            <p>Transplanted on: {{$plant->transplanted}}</p>
+            @endif
         <a href="{{route('showplant', ['plant'=>$plant->id])}}">Details</a>
         </div>
         @endforeach
