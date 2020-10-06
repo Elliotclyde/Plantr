@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Plant;
+use App\Classes\ViewPlant;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,7 +30,8 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::get('/dashboard', function () {
     $user = Auth::user();
-    return View::make('dashboard',['plants'=>$user->plants,'name'=>$user->name]);
+    $viewPlants = $user->plants->map(function($plant){return ViewPlant::getViewPlant($plant);});
+    return View::make('dashboard',['plants'=>$viewPlants,'name'=>$user->name]);
 })->middleware('auth')->name('dashboard');
 
 Route::middleware(['auth'])->group(function(){
