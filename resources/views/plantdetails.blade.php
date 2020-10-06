@@ -6,11 +6,11 @@
 @section('content')
 
 <h1>{{$plant->quantity}} {{ucfirst($plant->type)}}</h3>
-<p>Planted on: {{$plant->planted}}</p>
+<p>Planted on: {{$plant->planted}}. {{$plant->daysSincePlant}}.</p>
 <p>Planting type: {{$plant->propogation_type}}</p>
-
+<p>Ready to harvest sometime between {{$plant->harvestStart}} and {{$plant->harvestEnd}}. About {{$plant->diffToHarvest}}.</p>
 @if(isset($plant->transplanted))
-<p>Transplanted on: {{$plant->transplanted}}</p>
+<p>Transplanted on: {{$plant->transplanted}}. {{$plant->daysSinceTransplant}}.</p>
 @endif
 
 @if( $plant->propogation_type=="proptray" && !isset($plant->transplanted) )

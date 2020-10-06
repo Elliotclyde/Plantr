@@ -9,7 +9,7 @@
 
     <label for="type">Plant type</label>
     <select name="type" id="type">
-        @foreach ($plantoptions as $option)
+        @foreach ($planttypes as $option)
     <option value="{{$option}}">{{$option}}</option>
         @endforeach
     </select>

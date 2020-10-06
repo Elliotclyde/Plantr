@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Plant;
 use App\Models\PlantDetail;
+use App\Classes\ViewPlant;
 
 class PlantController extends Controller
 {
@@ -33,13 +34,17 @@ class PlantController extends Controller
         
         return redirect()->route('dashboard');
     }
+
     public function show(Plant $plant){
-        return View::make('plantdetails',['plant'=>$plant]);
+        $viewPlant = ViewPlant::getViewPlant($plant);
+        return View::make('plantdetails',['plant'=>$viewPlant]);
     }
+
     public function destroy(Plant $plant){
         Plant::destroy($plant->id);
-        return redirect()->route('dashboard');
+        return redirect()->route('dashboard'); 
     }
+
     public function transplant(Request $request, Plant $plant){
         $transplanted = $request->input('transplanted');
         $plant->transplanted=$transplanted;
