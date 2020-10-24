@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PlantController;
+use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Auth;
@@ -43,6 +44,10 @@ Route::get('/about', function () {
 Route::get('/login', [LoginController::class, 'showLogin'])->name('login');
 Route::post('/login', [LoginController::class, 'tryLogin']);
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+
+//register routes 
+
+Route::get('/register', [RegisterController::class, 'showRegister'])->name('register');
 
 //private routes
 

@@ -6,13 +6,7 @@
 
         <title>Plantr - @yield('title')</title>
 
-        <style>
-            body {
-                font-family: 'arial';
-                background-color:greenyellow;
-            }
-            
-        </style>
+        <link rel="stylesheet" href="{{asset('app.css')}}">
     </head>
     <body>
         <header>
