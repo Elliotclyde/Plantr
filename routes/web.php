@@ -19,20 +19,40 @@ use App\Classes\ViewPlant;
 |
  */
 
+ //public routes
+
 Route::get('/', function () {
+    if(Auth::check()){
+        return redirect()->route('dashboard');
+    }
+    else{
     return view('welcome');
+    }
 })->name('welcome');
+
+Route::get('/resources', function () {
+    return view('resources');
+})->name('resources');
+
+Route::get('/about', function () {
+    return view('about');
+})->name('about');
+
+//login routes
 
 Route::get('/login', [LoginController::class, 'showLogin'])->name('login');
 Route::post('/login', [LoginController::class, 'tryLogin']);
-
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+
+//private routes
 
 Route::get('/dashboard', function () {
     $user = Auth::user();
     $viewPlants = $user->plants->map(function($plant){return ViewPlant::getViewPlant($plant);});
     return View::make('dashboard',['plants'=>$viewPlants,'name'=>$user->name]);
 })->middleware('auth')->name('dashboard');
+
+//private plant routes
 
 Route::middleware(['auth'])->group(function(){
 

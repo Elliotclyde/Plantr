@@ -8,15 +8,26 @@
 
         <style>
             body {
-                font-family: 'Nunito';
+                font-family: 'arial';
                 background-color:greenyellow;
             }
             
         </style>
     </head>
     <body>
+        <header>
+            <ul>
+                <a href="{{route('welcome')}}"><x-svg-plantrlogobig/></a>
+                <a href="{{route('resources')}}">Resources</a>
+                <a href="{{route('about')}}">About</a>
+                @if (!Auth::check())
+                <a href="{{route('login')}}">Login</a>
+                @endif
+            </ul>
+        </header>
     <div class="container">
             @yield('content')
-        </div>
+    </div>
+    <footer>Copyright Hugh Haworth {{now()->year}} </footer>
     </body>
 </html>

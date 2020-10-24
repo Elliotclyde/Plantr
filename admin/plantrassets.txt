@@ -1,0 +1,26 @@
+ASSETS FOR PLANTR 2.0
+
+moodboard - google/inkscape DONE
+hero image - google DONE
+
+logo - inkscape
+
+ability card x3 - inkscape( 250 * 400px) DONE
+	-keep record of planting 
+	-alerted when plants are ready 
+	-get tips on maintaining productivity
+
+images of plants growing - inkscape 
+	-beetroot DONE
+	-broccoli DONE
+	-cauliflower DONE
+	-carrot DONE
+	-spinach DONE
+	-onion DONE
+
+images of planting types - inkscape
+	-seeds
+	-seedling
+	-propogation tray
+
+get onion stats from online 
