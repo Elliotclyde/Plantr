@@ -3,7 +3,7 @@ ASSETS FOR PLANTR 2.0
 moodboard - google/inkscape DONE
 hero image - google DONE
 
-logo - inkscape
+logo - inkscape DONE
 
 ability card x3 - inkscape( 250 * 400px) DONE
 	-keep record of planting 
@@ -19,8 +19,8 @@ images of plants growing - inkscape
 	-onion DONE
 
 images of planting types - inkscape
-	-seeds
-	-seedling
-	-propogation tray
+	-seeds DONE 
+	-seedling DONE 
+	-propogation tray DONE
 
-get onion stats from online 
+get onion stats from online

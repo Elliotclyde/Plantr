@@ -11,11 +11,11 @@
     <body>
         <header>
             <ul>
-                <a href="{{route('welcome')}}"><x-svg-plantrlogobig/></a>
-                <a href="{{route('resources')}}">Resources</a>
-                <a href="{{route('about')}}">About</a>
+                <li class="logo"><a href="{{route('welcome')}}"><x-svg-plantrlogobig/></a></li>
+                <li><a href="{{route('resources')}}">Resources</a></li>
+                <li><a href="{{route('about')}}">About</a></li>
                 @if (!Auth::check())
-                <a href="{{route('login')}}">Login</a>
+                <li><a href="{{route('login')}}">Login</a></li>
                 @endif
             </ul>
         </header>
