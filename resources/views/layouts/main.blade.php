@@ -9,7 +9,7 @@
     </head>
     <body>
         <header>
-            <a class="logo" href="{{route('welcome')}}">Plantr<x-svg-plantrlogo/></a>
+            <a class="logo" href="{{route('welcome')}}"><span class="logo-text">Plantr</span><x-svg-plantrlogo/></a>
             <ul>
                 
                 <li><a href="{{route('resources')}}">Resources</a></li>
