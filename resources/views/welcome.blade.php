@@ -15,4 +15,9 @@
             <img srcset="{{asset('images/plantr-hero-2-1600-1000-optim.jpg')}}" alt="Picture of onions being grown">
           </picture>
         </div>
+    <div class="activity-cards">
+        <div class="activity-cont"><p class="selling-point">Keep a record of your growing</p><x-svg-record-of-growing/></div>
+        <div class="activity-cont"><p class="selling-point">Get notified when plants are ready to harvest</p><x-svg-plants-ready/></div>
+        <div class="activity-cont"><p class="selling-point">Get tips on maintaining productivity</p><x-svg-productivity/></div>
+    </div>
 @endsection

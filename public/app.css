@@ -10,6 +10,7 @@ body {
     width:100%;
     
     --main-green: hsl(120deg 50% 30%);
+    --dark-green: hsl(120deg 40% 17%);
     --green-white:hsl(120deg 17% 91%);
     --green-black:hsl(120deg 70% 10%);
     --green-grey:hsl(120deg 15% 80%);
@@ -65,12 +66,12 @@ background-color:var(--green-grey) ;
     font-family: 'aadam', 'serif';
     margin-right: auto;
     align-items: center;
-    font-size: 1.4em;
+    font-size: 1.8em;
     width: fit-content;
 }
 .logo svg{
     margin: -1.3vw;
-    height: 1.4em;}
+    height: 1em;}
 
 header li {
     width: 24vw;
@@ -86,6 +87,7 @@ header li {
 .welcome-hero {
     position: relative;
     width: 100%;
+    box-shadow:0px 3px 5px var(--dark-green) ;
 }
 
 .welcome-hero img {
@@ -150,6 +152,28 @@ h1.hidden-heading {
     background-color: rgb(96, 194, 47);
 }
 
+.activity-cards{
+    display: flex;
+    justify-content: space-around;
+}
+.activity-cont{
+    width:31vw;
+    position: relative;;
+    box-shadow:0px 3px 5px var(--dark-green) ;
+}
+.selling-point{
+    font-family: aadam;
+    color: var(--green-white);
+    width: 70%;
+    position:absolute;
+    left:50%;
+    transform:translateX(-50%);
+    top: 33vw;
+    font-size: 1.25em;
+    text-align: center;
+}
+
+
 @media only screen and (max-width: 800px) {
     header {
         margin-left: 0;
@@ -158,3 +182,18 @@ h1.hidden-heading {
         left:0;
     }
 }
+
+@media only screen and (max-width: 400px) {
+    .activity-cards{
+        display: flex;
+        flex-direction: column;
+    }
+    .activity-cont{
+        width:100%;
+    }
+    .selling-point{
+        top: 100vw;
+        font-size: 2.5em;
+    }
+}
+
