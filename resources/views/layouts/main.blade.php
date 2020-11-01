@@ -6,6 +6,7 @@
         <title>Plantr - @yield('title')</title>
 
         <link rel="stylesheet" href="{{asset('app.css')}}">
+        <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.3/dist/alpine.min.js" defer></script>
     </head>
     <body>
         <header>
