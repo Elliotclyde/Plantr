@@ -15,11 +15,7 @@ class PlantController extends Controller
         $plantDetail = PlantDetail::all();
         
         return View::make('newplant',
-        ['planttypes'=>$plantDetail->map(
-            function($plant){return $plant->type;}
-            )
-            
-            ]
+        ['planttypes'=>$plantDetail]
         );
     }
     public function store(Request $request){

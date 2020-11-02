@@ -213,7 +213,7 @@ form{
     align-items: center;
     text-align: center;
 }
-form label,form input {
+form label,form input, .label {
         display: block;    
         width:100%;
 }
@@ -304,3 +304,61 @@ form .logo-no-header{
     width:100%;
 }
 }
+
+form.new-plant-form{
+    width: max(80vw, 300px);
+}
+div.plant-type-display-container{
+    display: flex;
+}
+div.plant-type-input-container{
+    background-color: red;
+    width:50%;
+    display:flex;
+    flex-wrap: wrap;
+}
+div.plant-display-container{
+    width: 50%;
+    background-color: blue;
+}
+
+.plant-type-radio{
+    opacity: 0;
+    position: absolute;
+    width:0;
+    height:0;
+}
+
+.plant-type-radio+ label {
+    width: 100px;
+    height:0;
+    position: relative;
+  }
+  .plant-type-radio+ label::before {
+    content:"";
+    display: block;
+    padding-top:100% ;
+  }
+.plant-type-radio + label  svg {
+    position: absolute;
+    top:0;
+    left:0;
+    width: inherit;
+    height: auto;
+   background-color: lawngreen;
+  }
+  .plant-type-radio + label  img {
+    position: absolute;
+    top:0;
+    left:0;
+    width: inherit;
+    height: auto;
+   background-color: lawngreen;}
+   
+  .plant-type-radio + label  svg use {
+      width: 100%;
+      height: 100%;
+   }
+.plant-type-radio:focus + label {
+    outline: rgba(77, 97, 171, 0.5) auto 3px;
+  }

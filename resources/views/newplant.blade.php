@@ -1,26 +1,45 @@
 @extends('layouts.main')
 
+
+
+
+
 @section('title','New plant')
 
 @section('content')
+<svg style="display: none;">
+@foreach ($planttypes as $plant)
+<symbol id="{{$plant->type . "-icon"}}"> 
+@svg($plant->svg_path . 3)
+</symbol>
+@endforeach
+</svg>
 <h1>New Plant</h1>
-<form action="{{route('newplant')}}" method="post">
+
+<form class="new-plant-form" action="{{route('newplant')}}" method="post">
+    @csrf
     <div class="plant-type-container">
+        <p class="label">Choose Plant</p>
+        <div class="plant-type-display-container">
     <!-- Input (on left side on wider screens) -->
         <div class="plant-type-input-container">
-            <label for="type">Choose Plant</label>
-            <select class=plant-type-select name="type" id="type">
+            
                 @foreach ($planttypes as $option)
-                <option value="{{$option}}">{{$option}}</option>
+                <input class="plant-type-radio" id="{{$option->type . "-radio"}}" type="radio" name="type" value="{{$option->type}}">
+                <label for="{{$option->type . "-radio"}}" class="plant-type-label" aria-label={{$option->type}}>
+                    <svg><use href="{{'#' . $option->type . "-icon"}}"></svg>
+                </label>
                 @endforeach
-            </select>
         </div>
     <!-- Display of plant with tips -->
         <div class="plant-display-container">
             <h2 class="plant-display-title"></h2>
             <!-- SVG-ofplants -->
-            <div></div>
+            <div>
+                <svg><use xlink:href="#beetroot-icon"></svg>
+            </div>
             <p class="growing-tip"></p>
+        </div>
         </div>
     </div>
 
