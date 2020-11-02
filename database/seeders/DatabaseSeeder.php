@@ -18,5 +18,6 @@ class DatabaseSeeder extends Seeder
 
       $this->call(UserTableSeeder::class);
       $this->call(PlantDetailTableSeeder::class);
+      $this->call(PlantDetailSvgPathSeeder::class);
     }
 }
