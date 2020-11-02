@@ -7,13 +7,6 @@
 @section('title','New plant')
 
 @section('content')
-<svg style="display: none;">
-@foreach ($planttypes as $plant)
-<symbol id="{{$plant->type . "-icon"}}"> 
-@svg($plant->svg_path . 3)
-</symbol>
-@endforeach
-</svg>
 <h1>New Plant</h1>
 
 <form class="new-plant-form" action="{{route('newplant')}}" method="post">
@@ -27,7 +20,7 @@
                 @foreach ($planttypes as $option)
                 <input class="plant-type-radio" id="{{$option->type . "-radio"}}" type="radio" name="type" value="{{$option->type}}">
                 <label for="{{$option->type . "-radio"}}" class="plant-type-label" aria-label={{$option->type}}>
-                    <svg><use href="{{'#' . $option->type . "-icon"}}"></svg>
+                    @svg($option->svg_path . 3)
                 </label>
                 @endforeach
         </div>
