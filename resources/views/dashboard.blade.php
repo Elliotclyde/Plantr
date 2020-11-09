@@ -3,29 +3,31 @@
 @section('title', 'Dashboard')
 
 @section('content')
-    <h1>Plantr 2.0 Dashboard</h1>
-    <p>Welcome, {{$name}}</p>
+    <h1 class="hidden-heading">Plantr 2.0 Dashboard</h1>
+    
     <div class="plants-container">
+        <p>Welcome, {{$name}}</p>
         <h2>Your plants</h2>
     <div class="plants">
         @foreach($plants as $plant)
+        <a href="{{route('showplant', ['plant'=>$plant->id])}}">
         <div class="plant-container">
-        <h3>{{$plant->quantity}} {{ucfirst($plant->type)}}</h3>
-        <p>Planted on: {{$plant->planted}}</p>
-        <p>Planting type: {{$plant->propogation_type}}</p>
-            @if(isset($plant->transplanted))
-            <p>Transplanted on: {{$plant->transplanted}}</p>
-            @endif
-        <a href="{{route('showplant', ['plant'=>$plant->id])}}">Details</a>
+            <div class="plant-container-inner">
+        <h3><div>
+            <span class="plant-title">{{$plant->quantity}} {{ucfirst($plant->type)}}</span>
+            <span class="plant-subtitle">Planted on:<br/> {{$plant->planted}}.</span>
+        </div></h3>
+        @svg($plant->svgPath . $plant->svgNum)
+        <div class="progress-bar">
+            <div class="progress" style="width: {{$plant->progress}}%;"><span>{{$plant->progress}}</span></div>
         </div>
+        </div>
+    </div>
+</a>
         @endforeach
     </div>
     <div><a href="{{route('newplant')}}">New plant</a></div>
     </div>
-
-
-
-
     <a class="log-out-btn" href="#" onclick="event.preventDefault();document.getElementById('logout-form').submit();"> Logout </a>
     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
          {{ csrf_field() }}
