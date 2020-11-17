@@ -16,12 +16,12 @@ class ViewPlant
         $plantDetails = PlantDetail::where('type', $viewPlant->type)->first();
         $viewPlant->details=$plantDetails;
 
-        $viewPlant->harvestStart = self::getCarbonDate($plant->planted)->addDays($plantDetails->daystoharveststart)->format('jS \\of F Y');
-        $viewPlant->harvestEnd = self::getCarbonDate($plant->planted)->addDays($plantDetails->daystoharvestend)->format('jS \\of F Y');
+        $viewPlant->harvestStart = self::getCarbonDate($plant->planted)->addDays($plantDetails->daystoharveststart)->format('d/m/Y');
+        $viewPlant->harvestEnd = self::getCarbonDate($plant->planted)->addDays($plantDetails->daystoharvestend)->format('d/m/Y');
         $viewPlant->diffToHarvest = self::getDiffToHarvest($plant, $plantDetails);
 
         $viewPlant->daysSincePlant = self::getCarbonDate($viewPlant->planted)->diffForHumans();
-        $viewPlant->planted = self::getCarbonDate($plant->planted)->format('jS \\of F Y');
+        $viewPlant->planted = self::getCarbonDate($plant->planted)->format('d/m/Y');
 
         $viewPlant->svgPath = $plantDetails->svg_path;
         $viewPlant->progress = max(0, min(100, (self::getCarbonDate($plant->planted)->diffInDays(Carbon::now()) / $plantDetails->daystoharvestend) * 100));
@@ -34,7 +34,7 @@ class ViewPlant
 
         if (isset($viewPlant->transplanted)) {
             $viewPlant->daysSinceTransplant = self::getCarbonDate($plant->transplanted)->diffForHumans();
-            $viewPlant->transplanted = self::getCarbonDate($plant->transplanted)->format('jS \\of F Y');
+            $viewPlant->transplanted = self::getCarbonDate($plant->transplanted)->format('d/m/Y');
         }
 
         return $viewPlant;
