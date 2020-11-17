@@ -1,6 +1,8 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+
 }
 
 fieldset {
@@ -75,13 +77,14 @@ header ul a:focus {
 
 
 .logo {
+    padding: 0 2rem;
     height: 100%;
     color: var(--main-green);
     font-weight: bold;
     display: flex;
     font-family: 'aadam', 'serif';
     margin-right: auto;
-    margin-left: 4rem;
+    margin-left: 2rem;
     align-items: center;
     font-size: 1.8em;
     width: fit-content;
@@ -283,56 +286,6 @@ form .logo-no-header {
     background-color: var(--green-grey);
 }
 
-
-@media only screen and (max-width: 800px) {
-    .logo {
-        margin-left: 1rem;
-    }
-
-    .tagline-container {
-        left: 1rem;
-    }
-
-    .selling-point {
-        font-size: 1em;
-    }
-
-}
-
-@media only screen and (max-width: 400px) {
-    .activity-cards {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .activity-cont {
-        width: 100%;
-    }
-
-    .selling-point {
-        top: 110vw;
-        font-size: 1.75em;
-    }
-
-    .logo {
-        background-color: var(--green-grey);
-        border-radius: 50%;
-        width: 1.2em;
-    }
-
-    .logo-text {
-        display: none;
-    }
-
-    .logo svg {
-        margin: auto;
-    }
-
-    .login-form {
-        width: 100%;
-    }
-}
-
 form.new-plant-form {
     width: min(80vw, 1000px);
     margin: 2em auto 0;
@@ -479,19 +432,27 @@ div.plant-display {
     grid-template-columns: repeat(auto-fill, minmax(calc(100px + 7vw), 1fr));
     gap: 4rem 1rem;
 }
-.plants>a{
-    box-shadow:1px 1px 5px var(--green-grey) ;
+
+.plants>a {
+    box-shadow: 1px 1px 5px var(--green-grey);
 }
 
-.plants>a:hover,
 .plants>a:focus {
-    background-color: var(--green-greyest);
-    box-shadow:1px 1px 5px var(--lighter-green-black) ;
+    outline: none;
 }
-.plants>a:hover h3,.plants>a:focus h3{
+
+.plants>a:hover .plant-container-inner,
+.plants>a:focus .plant-container-inner {
+    background-color: var(--green-greyest);
+    box-shadow: 1px 1px 5px var(--lighter-green-black);
+}
+
+.plants>a:hover h3,
+.plants>a:focus h3 {
     background-color: var(--greener-grey);
 }
-.plants-container{
+
+.plants-container {
     width: min(80vw, 1000px);
     margin: 2em auto 0;
 }
@@ -550,6 +511,10 @@ div.plant-display {
     font-size: calc(12.5px + 0.5vw);
 }
 
+.plant-container-inner>h3>div>span.plant-subtitle>.plant-subtitle-date {
+    font-weight: bold;
+}
+
 
 .plant-container-inner>svg {
     align-self: center;
@@ -570,15 +535,221 @@ div.plant-display {
     display: block;
 }
 
-.progress-bar > .progress{
+.progress-bar>.progress {
     position: absolute;
-    top:0;
-    left:0;
+    top: 0;
+    left: 0;
     height: 100%;
     background-color: var(--main-green);
 }
 
-.progress-bar > .progress >span{
+.progress-bar>.progress>span {
     position: absolute;
-    left:-10000px;
+    left: -10000px;
+}
+
+.plant-details {
+    width: min(80vw, 1400px);
+    margin: 2em auto 0;
+    display: flex;
+}
+
+.plant-details>* {
+    width: 50%;
+}
+.plant-details-info{
+       padding: 2em;
+}
+
+.plant-details-info>*:not(h2) {
+    margin-bottom: 1em;
+}
+
+.plant-details-display-container {
+    background-color: var(--green-grey);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.plant-details-display {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    animation: grow 9s linear infinite;
+    transform-origin: bottom;
+}
+
+.plant-details-display>svg {
+    animation: cf3FadeInOut 9s linear infinite;
+    position: absolute;
+    width: 100%;
+    height: 115%;
+    transform: translateY(9%);
+    opacity: 0;
+}
+
+.plant-details-display>svg.plant-display-svg-1 {
+    animation-delay: 0s;
+    -webkit-animation-delay: 0s;
+}
+
+.plant-details-display>svg.plant-display-svg-2 {
+    animation-delay: 3s;
+    -webkit-animation-delay: 3s;
+}
+
+.plant-details-display>svg.plant-display-svg-3 {
+    animation-delay: 6s;
+    -webkit-animation-delay: 6s;
+}
+
+.plant-details-actions {
+    width: min(80vw, 1400px);
+    margin: 0 auto 0;
+    display: flex;
+    flex-direction: column;
+    padding: 2em 0 0 2em;
+}
+
+.plant-details-actions>a {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1em;
+}
+.plant-details-actions>a:focus{
+    outline: none;
+}
+.plant-details-actions>a:hover>svg,
+.plant-details-actions>a:focus >svg {
+    background-color: var(--greener-grey);
+    box-shadow: 1px 1px 5px var(--lighter-green-black);
+}
+
+.plant-details-actions>a>svg {
+    margin-right: 1em;
+    background-color: var(--green-grey);
+    padding: 0.4em;
+    width: 4em;
+    height: 4em;
+    border-radius: 2em;
+}
+
+@keyframes grow {
+    0% {
+        transform: scale(0.2);
+    }
+
+    85% {
+        transform: scale(1);
+    }
+}
+
+@keyframes cf3FadeInOut {
+    0% {
+        opacity: 0;
+    }
+
+    3% {
+        opacity: 1;
+    }
+
+    33% {
+        opacity: 1;
+    }
+
+    36% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+
+    .logo {
+        margin-left: 1rem;
+        padding: 0;
+    }
+
+    .tagline-container {
+        left: 1rem;
+    }
+
+    .selling-point {
+        font-size: 1em;
+    }
+
+    .plant-details {
+        align-items: center;
+        flex-direction: column;
+        width: calc(100% - 2em);
+        margin: 1em;
+    }
+
+    .plant-details>* {
+        width: 100%;
+        text-align: center;
+    }
+
+
+    .plant-details-display-container {
+        height: 12em;
+        width: 12em;
+    }
+    .plant-details-actions{
+        flex-direction: row;
+        justify-content: space-around;
+        padding:1em 0 0 0 ;
+    }
+    .plant-details-actions>a>svg {
+        margin-right: 0;
+    }
+    .action-caption {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .activity-cards {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .activity-cont {
+        width: 100%;
+    }
+
+    .selling-point {
+        top: 110vw;
+        font-size: 1.75em;
+    }
+
+    .logo {
+        margin-left: 0;
+        background-color: var(--green-grey);
+        border-radius: 50%;
+        width: 1.2em;
+    }
+
+    .logo:hover,
+    .logo:focus {
+        background-color: var(--greener-grey);
+    }
+
+    .logo-text {
+        display: none;
+    }
+
+    .logo svg {
+        margin: auto;
+    }
+
+    .login-form {
+        width: 100%;
+    }
 }

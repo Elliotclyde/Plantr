@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Plantr - @yield('title')</title>
-        <link rel="shortcut icon" href="favicon.svg" type="image/x-icon">
+        <link rel="shortcut icon" href="/favicon.svg" type="image/x-icon">
         <link rel="stylesheet" href="{{asset('app.css')}}">
         <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.3/dist/alpine.min.js" defer></script>
     </head>

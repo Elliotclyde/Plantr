@@ -53,7 +53,7 @@
         <input class="prop-type-radio" id="directsow" type="radio" name="propogation_type" value="directsow">
         <label for="directsow" class="prop-type-label" aria-label="directsow">
             @svg('proptypes.direct-sew')
-            <p class="prop-type">Sew directly</p>
+            <p class="prop-type">Sow directly</p>
             
         </label>
         <input class="prop-type-radio" id="seedling" type="radio" name="propogation_type" value="seedling">
@@ -64,7 +64,7 @@
         <input class="prop-type-radio" id="proptray" type="radio" name="propogation_type" value="proptray">    
         <label for="proptray" class="prop-type-label" aria-label="proptray">
             @svg('proptypes.prop-tray')
-            <p class="prop-type">Sew in tray</p>
+            <p class="prop-type">Sow in tray</p>
         </label>
         </fieldset>
         <input class="round-btn" type="submit">

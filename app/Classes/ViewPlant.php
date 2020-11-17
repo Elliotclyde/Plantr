@@ -14,6 +14,7 @@ class ViewPlant
 
         $viewPlant = clone $plant;
         $plantDetails = PlantDetail::where('type', $viewPlant->type)->first();
+        $viewPlant->details=$plantDetails;
 
         $viewPlant->harvestStart = self::getCarbonDate($plant->planted)->addDays($plantDetails->daystoharveststart)->format('jS \\of F Y');
         $viewPlant->harvestEnd = self::getCarbonDate($plant->planted)->addDays($plantDetails->daystoharvestend)->format('jS \\of F Y');
