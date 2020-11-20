@@ -12,6 +12,11 @@ class LoginController extends Controller
         return View::make('login');
     }
     public function tryLogin(Request $request){
+        
+        $this->validate(request(), [
+            'username' => 'required',
+            'password' => 'required'
+        ]);
         $credentials = $request->only('username', 'password');
         if (Auth::attempt($credentials)) {
             return redirect()->route('dashboard');

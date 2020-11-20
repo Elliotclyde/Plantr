@@ -19,7 +19,12 @@ class PlantController extends Controller
         );
     }
     public function store(Request $request){
-
+        $this->validate(request(), [
+            'type' => 'required',
+            'planted' => 'required|date',
+            'quantity' => 'required|integer',
+            'propogation_type' => 'required'
+        ]);
         $plant = new Plant();
         $plant->user_id =Auth::id();
         $plant->type =$request->input('type');

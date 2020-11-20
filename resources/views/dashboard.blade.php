@@ -25,8 +25,23 @@
     </div>
 </a>
         @endforeach
+        <a href="{{route('newplant')}}">
+            <div class="plant-container">
+                <div class="plant-container-inner">
+            <h3 class="new-plant-button-title"><div>
+                <span class="plant-title">New plant</span>
+                <span class="plant-subtitle"></span></span>
+            </div></h3>
+            <div class=new-plant-plus>+</div>
+            
+            <div class="progress-bar new-plant-bar">
+                <div class="progress" style="width: 0%;"><span></span></div>
+            </div>
+            </div>
+        </div>
+        </a>
     </div>
-    <div><a href="{{route('newplant')}}">New plant</a></div>
+    <div></div>
     </div>
     <a class="log-out-btn" href="#" onclick="event.preventDefault();document.getElementById('logout-form').submit();"> Logout </a>
     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

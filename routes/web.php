@@ -48,6 +48,7 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 //register routes 
 
 Route::get('/register', [RegisterController::class, 'showRegister'])->name('register');
+Route::post('/register', [RegisterController::class, 'tryRegister']);
 
 //private routes
 

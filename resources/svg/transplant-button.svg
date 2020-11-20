@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   inkscape:version="1.0 (4035a4fb49, 2020-05-01)"
+   sodipodi:docname="transplant-button.svg"
+   id="svg895"
+   version="1.1"
+   viewBox="0 0 6.615 6.615"
+   height="25"
+   width="25">
+  <metadata
+     id="metadata901">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs899" />
+  <sodipodi:namedview
+     inkscape:current-layer="svg895"
+     inkscape:window-maximized="0"
+     inkscape:window-y="0"
+     inkscape:window-x="0"
+     inkscape:cy="10.957266"
+     inkscape:cx="7.8295308"
+     inkscape:zoom="20.788939"
+     showgrid="false"
+     id="namedview897"
+     inkscape:window-height="979"
+     inkscape:window-width="1587"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0"
+     guidetolerance="10"
+     gridtolerance="10"
+     objecttolerance="10"
+     borderopacity="1"
+     bordercolor="#666666"
+     pagecolor="#ffffff" />
+  <path
+     id="path891"
+     fill="#4c6f40"
+     d="M3.175 6.086V4.763l-.498-.344.074.237s-.149.237-.297.237c-.223 0-.297-.079-.297-.079-.074-.08 0-.08 0-.158-.042-.034-.074-.079-.149-.079-.024-.079-.068-.079-.074-.237 0-.079.075-.158.371-.158.223 0 .297.158.297.158s.149-.045.223 0l.35.273-.424-.905c-.52-.148-.742-.395-.742-.395-.149-.158 0-.947 0-.947s.668.079.965.395c0 0 .148.552-.15.868l.51.737.53-.737c-.297-.316-.149-.868-.149-.868.297-.316.891-.395.891-.395s.149.79 0 .947c-.146.142-.148.237-.668.395l-.445.905.37-.273c.15-.042.224 0 .224 0s.074-.158.296-.158c.223 0 .371.08.371.158 0 .158-.074.237-.074.237-.074 0-.148.08-.148.08 0 .078.074.078 0 .157 0 0-.074.08-.297.08-.148.001-.297-.238-.297-.238l.074-.237-.52.344v1.323z" />
+  <path
+     sodipodi:nodetypes="ccccccccc"
+     id="path893"
+     fill="#4c6f40"
+     d="M 3.44,3.175 V 0.794 l 0.529,0.53 V 1.058 L 3.283,0.236 2.646,1.058 v 0.265 l 0.53,-0.53 v 2.382" />
+</svg>

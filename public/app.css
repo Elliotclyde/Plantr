@@ -24,11 +24,13 @@ body {
     --main-green: hsl(120deg 50% 30%);
     --dark-green: hsl(120deg 40% 17%);
     --green-white: hsl(120deg 17% 91%);
-    --green-black: hsl(120deg 70% 10%);
+    --green-black: hsl(120deg 70% 10%); 
     --lighter-green-black: hsl(120deg, 20%, 25%);
     --even-lighter-green-black: hsl(120deg, 10%, 35%);
     --green-grey: hsl(120deg 15% 80%);
     --green-greyest: hsl(120deg 10% 85%);
+    --grey:hsl(120deg 0% 85%);
+    --dark-grey: hsl(120deg 0% 45%);
     --greener-grey: hsl(120deg 20% 70%);
     --main-red:hsl(0, 70%, 56%);
     --darker-red:hsl(0, 99%, 35%);
@@ -553,6 +555,29 @@ div.plant-display {
     left: -10000px;
 }
 
+.plant-container-inner>h3.new-plant-button-title {
+    background-color: var(--grey);
+}
+
+.new-plant-plus{
+    color: var(--dark-grey);
+    font-size: calc(65px + 9vw);
+    height: 0;
+    width: 100%;
+    text-align: center;
+    padding-bottom: 107%;
+}
+.progress-bar.new-plant-bar{
+    background-color: var(--grey);
+}
+.plants>a:focus div.new-plant-plus,
+.plants>a:hover div.new-plant-plus{
+color: var(--main-green);
+}
+.plants>a:focus div.new-plant-bar,
+.plants>a:hover div.new-plant-bar {
+    background-color: var(--greener-grey);
+}
 .plant-details {
     width: min(80vw, 1400px);
     margin: 2em auto 0;
@@ -631,10 +656,10 @@ div.plant-display {
 }
 
 .plant-details-actions>a {
+    width: 33%;
     display: flex;
     align-items: center;
     margin-bottom: 1em;
-    margin-right: 2em;
 }
 
 .plant-details-actions>a:focus {
@@ -656,7 +681,7 @@ div.plant-display {
     border-radius: 2em;
 }
 
-.delete-modal-wrapper {
+.modal-wrapper {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -672,8 +697,19 @@ div.plant-display {
     background-color: var(--green-white);
     padding: 6em;
 }
-.delete-modal h2{
+.transplant-modal{
+    margin: 0;
+    font-size: 1em;
+    background-color: var(--green-white);
+    padding: 4em 1em;
+}
+.transplant-modal > *:not(label){
+margin-bottom: 2rem;
+}
+.delete-modal h2,.delete-modal label{
     text-align: center;
+    
+    display: block;
 }
 .delete-modal-actions{
     margin-top: 1em;
@@ -768,11 +804,18 @@ background-color: var(--main-red);
     .plant-details-actions {
         flex-direction: row;
         justify-content: space-around;
-        padding: 1em 0 0 0;
+        width: calc(100% - 10em);
+        margin: auto;
+        padding:0;
     }
+        
 
-    .plant-details-actions>a>svg {
-        margin-right: 0;
+    .plant-details-actions>a{
+        width: auto;
+    }
+    
+    .plant-details-actions>a>svg{
+        margin: 0;
     }
 
     .action-caption {

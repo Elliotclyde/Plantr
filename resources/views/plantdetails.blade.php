@@ -10,22 +10,15 @@
 <h1>{{$plant->quantity}} {{ucfirst($plant->type)}}</h1>
 
 <h2>Ready to harvest:</h2><p>{{$plant->harvestStart}} to {{$plant->harvestEnd}}<br/> (About {{$plant->diffToHarvest}})</p>
-<h2>Planted on:</h2><p>{{$plant->planted}}.<br/> ({{$plant->daysSincePlant}})</p>
-<h2>Planting type:</h2><p>{{$plant->propogation_type}}</p>
+<h2>Planted on:</h2><p>{{$plant->planted}}<br/> ({{$plant->daysSincePlant}})</p>
+<h2>Planting type:</h2><p>{{$plant->formattedPropogationType}}</p>
 @if(isset($plant->transplanted))
-<h2>Transplanted on:</h2><p>  {{$plant->transplanted}}. {{$plant->daysSinceTransplant}}</p>
+<h2>Transplanted on:</h2><p>{{$plant->transplanted}}. {{$plant->daysSinceTransplant}}</p>
 @endif
 <h2>Tip:</h2>
 <p>{{trim(json_decode($plant->details->tips)[rand(0,count(json_decode($plant->details->tips))-1)])}}</p>
-@if( $plant->propogation_type=="proptray" && !isset($plant->transplanted) )
-<form method="POST" action="{{route('transplant',['plant' => $plant])}}">
-    <h2>Transplant</h2>
-    <label for="transplant-date">Transplant date: </label>
-    <input id="transplant-date" type="date" name="transplanted">
-    <input type="submit" value="submit">
-    @csrf
-</form>
-@endif
+
+
 </div>
 <div class="plant-details-display-container">
     <div class="plant-details-display">
@@ -37,16 +30,31 @@
 
 </div>
 
-<div class="plant-details-actions" x-data="{open:false}" >
-    <a href="{{route('dashboard')}}"><x-svg-back-home-button class="delete-button"/><span class="action-caption"> Back to dashboard</span></a>
-    <a href="#" @click="open = true"><x-svg-bin class="delete-button"/> <span class="action-caption"> Delete</span></a>
+<div class="plant-details-actions" x-data="{deleteopen:false,transplantopen:false}" >
+    <a href="{{route('dashboard')}}"><x-svg-back-home-button class="delete-button"/><span class="action-caption">Dashboard</span></a>
+    <a href="#" @click="deleteopen = true"><x-svg-bin class="delete-button"/> <span class="action-caption"> Delete</span></a>
+    
+    @if( $plant->propogation_type=="proptray" && !isset($plant->transplanted))
+    <a href="#" @click="transplantopen = true"><x-svg-transplant-button class="delete-button"/><span class="action-caption"> Transplant</span></a>
+   
+    <div class="modal-wrapper" x-show="transplantopen">
+    <form class="transplant-modal" method="POST" action="{{route('transplant',['plant' => $plant])}}" @click.away="transplantopen=false">
+        <h2>Transplant</h2>
+        <label for="transplant-date">Transplant date: </label>
+        <input id="transplant-date" type="date" name="transplanted">
+        <input type="submit" value="submit">
+        @csrf
+    </form>
+</div>
+    @endif
 
-    <div class="delete-modal-wrapper" x-show="open" @click="open = false">
-        <div class="delete-modal">
-            <h2>Are you sure?</h2>
+    <div class="modal-wrapper" x-show="deleteopen">
+        <div class="delete-modal" @click.away="deleteopen=false">
+            <h2>Delete</h2>
+            <label for="delete-button">Are you sure?</label>
             <div class="delete-modal-actions">
-            <a href="#" @click="open = false">Cancel</a>
-            <a  class="delete"  href="{{ route('deleteplant', ['plant' => $plant]) }}"
+            <a href="#" @click="deleteopen = false">Cancel</a>
+            <a id="delete-button"  class="delete"  href="{{ route('deleteplant', ['plant' => $plant]) }}"
                 onclick="event.preventDefault();
                 document.getElementById('delete-form-{{ $plant->id }}').submit();">
                Delete</a>

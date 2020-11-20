@@ -30,7 +30,7 @@ class ViewPlant
             $viewPlant->svgNum = 1;
         }
 
-        $viewPlant->propogation_type = self::formatPropogationtype($plant->propogation_type);
+        $viewPlant->formattedPropogationType = self::formatPropogationtype($plant->propogation_type);
 
         if (isset($viewPlant->transplanted)) {
             $viewPlant->daysSinceTransplant = self::getCarbonDate($plant->transplanted)->diffForHumans();
