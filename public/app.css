@@ -27,14 +27,16 @@ body {
     --green-black: hsl(120deg 70% 10%); 
     --lighter-green-black: hsl(120deg, 20%, 25%);
     --even-lighter-green-black: hsl(120deg, 10%, 35%);
-    --green-grey: hsl(120deg 15% 80%);
-    --green-greyest: hsl(120deg 10% 85%);
-    --grey:hsl(120deg 0% 85%);
-    --dark-grey: hsl(120deg 0% 45%);
-    --greener-grey: hsl(120deg 20% 70%);
+    --green-grey: hsl(120deg, 15%, 80%);
+    --green-greyest: hsl(120deg, 10%, 85%);
+    --grey:hsl(120deg, 0%, 85%);
+    --dark-grey: hsl(120deg, 0%, 45%);
+    --greener-grey: hsl(120deg, 20%, 70%);
     --main-red:hsl(0, 70%, 56%);
     --darker-red:hsl(0, 99%, 35%);
+    --darkest-red:hsl(0, 99%, 25%);
     --lighter-red:hsl(0, 28%, 65%);
+    --lightest-red:hsl(0, 15%, 75%);
 
     --transparent-green-black: hsla(120deg, 80%, 5%, 0.5);
     color: var(--green-black);
@@ -245,17 +247,17 @@ form input,
     width: 100%;
 }
 
-form input {
-    font-size: 1em;
-    margin-bottom: 1em;
-    border: none;
-    background-color: var(--green-grey);
-}
 
 form input {
     height: 2em;
     font-size: 1em;
     margin-bottom: 1em;
+    background-color: var(--green-grey);
+    border: none;
+}
+form input:focus{
+    outline: none;
+    background-color: var(--greener-grey);
 }
 
 form input[type=submit] {
@@ -463,6 +465,10 @@ div.plant-display {
     width: min(80vw, 1000px);
     margin: 2em auto 0;
 }
+.plants-container>h2 {
+    font-family: aadam;
+    font-size:1.75em;
+}
 
 .plant-container {
     padding: 1rem;
@@ -510,6 +516,7 @@ div.plant-display {
     display: block;
     width: 100%;
     text-align: center;
+    
 }
 
 .plant-container-inner>h3>div>span.plant-subtitle {
@@ -865,4 +872,14 @@ background-color: var(--main-red);
     .login-form {
         width: 100%;
     }
+}
+.invalid{
+    border-width: 2px;
+    border-style: solid;
+    border-color: var(--main-red);
+    color: var(--darkest-red);
+    background-color: var(--lightest-red);
+}
+.invalid:focus{
+    background-color: var(--grey);
 }

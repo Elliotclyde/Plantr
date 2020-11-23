@@ -41,7 +41,7 @@
     <form class="transplant-modal" method="POST" action="{{route('transplant',['plant' => $plant])}}" @click.away="transplantopen=false">
         <h2>Transplant</h2>
         <label for="transplant-date">Transplant date: </label>
-        <input id="transplant-date" type="date" name="transplanted">
+        <input id="transplant-date" type="date" name="transplanted" value="{{(new \Carbon\Carbon())->tz('Pacific/Auckland')->format('Y-m-d')}}">
         <input type="submit" value="submit">
         @csrf
     </form>
