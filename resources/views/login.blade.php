@@ -12,6 +12,7 @@
     <label for="password">Password</label>
     <input type="password" name="password" id="password">
     <input class="round-btn" type="submit" value="Log in">
+    @if($errors->any()) @foreach($errors->all() as $error)"{{$error}}" @endforeach @endif
     </form>
     <div class="home-link"><a  href="{{route('welcome')}}">Home</a></div>
     @endsection

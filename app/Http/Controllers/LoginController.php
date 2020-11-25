@@ -22,7 +22,7 @@ class LoginController extends Controller
             return redirect()->route('dashboard');
         }
         else{
-           return "I'm sorry but those details are wrong";
+            return redirect()->route('login')->withErrors(['Sorry, that username and password didn\'t match']);
         }
     }
     public function logout()
