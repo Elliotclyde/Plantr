@@ -204,6 +204,9 @@ h1.hidden-heading {
 .call-to-action:focus {
     background-color: rgb(96, 194, 47);
 }
+.round-btn:active {
+    background-color: rgb(50, 150, 0);
+}
 
 .activity-cards {
     display: flex;
@@ -251,10 +254,21 @@ form input,
 form input {
     height: 2em;
     font-size: 1em;
-    margin-bottom: 1em;
     background-color: var(--green-grey);
     border: none;
+    margin-bottom: 1em;
 }
+.formerror{
+    color:var(--darker-red);
+    margin-bottom: 1em;
+    display:none;
+    font-size: 0.75em;
+}
+
+.formerror.visible{
+    display:block;
+}
+
 form input:focus{
     outline: none;
     background-color: var(--greener-grey);
@@ -879,6 +893,7 @@ background-color: var(--main-red);
     border-color: var(--main-red);
     color: var(--darkest-red);
     background-color: var(--lightest-red);
+    margin-bottom: 0;
 }
 .invalid:focus{
     background-color: var(--grey);

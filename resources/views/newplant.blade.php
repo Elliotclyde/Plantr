@@ -1,9 +1,5 @@
 @extends('layouts.main')
 
-
-
-
-
 @section('title','New plant')
 
 @section('content')
@@ -19,8 +15,8 @@
             <fieldset x-model="selected" class="plant-type-input-container">
                 @foreach($planttypes as $option)
                     <input class="plant-type-radio" id="{{ $option->type . "-radio" }}"
-                        type="radio" name="type" value="{{ $option->type }}" <blade
-                        if|(%24option-%3Etype%3D%3D%24planttypes%5B0%5D-%3Etype)%0D>
+                        type="radio" name="type" value="{{ $option->type }}"
+                @if($option->type===$planttypes[0]->type)
                     checked
                 @endif
                 >
@@ -38,8 +34,7 @@
                     <div class="plant-display-item-wrapper" x-ref="{{ $option->type }}"
                         data-plant="{{ $option->type }}"
                         x-show="selected===$refs.{{ $option->type }}.dataset.plant">
-                        <blade
-                            svg|(%24option-%3Esvg_path%20.%203%2C%5B%26%2339%3Bclass%26%2339%3B%3D%3E%26%2339%3Bplant-display-item%26%2339%3B%5D)%0D>
+                        @svg($option->svg_path .'3',["class"=>"plant-display-item"])
                             <p class="growing-tip">
                                 {{ trim(json_decode($option->tips)[rand(0,count(json_decode($option->tips))-1)]) }}
                             </p>
