@@ -25,5 +25,6 @@
             @yield('content')
     </div>
     <footer>Copyright Hugh Haworth {{now()->year}} </footer>
+    <script src="./scripts/formscripts.js" ></script>
     </body>
 </html>

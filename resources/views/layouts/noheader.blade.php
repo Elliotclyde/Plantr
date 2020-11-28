@@ -7,12 +7,13 @@
         <link rel="stylesheet" href="{{asset('app.css')}}">
         <link rel="shortcut icon" href="/favicon.svg" type="image/x-icon">
         <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.3/dist/alpine.min.js" defer></script>
-        <script src="https://cdn.jsdelivr.net/gh/mattkingshott/iodine@3/dist/iodine.min.js" defer></script>
+        <script src="https://cdn.jsdelivr.net/gh/mattkingshott/iodine@3/dist/iodine.min.js" ></script>
     </head>
     <body>
     <div class="container">
             @yield('content')
     </div>
     <footer>Copyright Hugh Haworth {{now()->year}} </footer>
+    <script src="./scripts/formscripts.js" ></script>
     </body>
 </html>

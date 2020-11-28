@@ -42,7 +42,7 @@
         <h2>Transplant</h2>
         <label for="transplant-date">Transplant date: </label>
         <input id="transplant-date" type="date" name="transplanted" value="{{(new \Carbon\Carbon())->tz('Pacific/Auckland')->format('Y-m-d')}}">
-        <input type="submit" value="submit">
+        <input class="round-btn" type="submit" value="submit">
         @csrf
     </form>
 </div>
@@ -53,8 +53,8 @@
             <h2>Delete</h2>
             <label for="delete-button">Are you sure?</label>
             <div class="delete-modal-actions">
-            <a href="#" @click="deleteopen = false">Cancel</a>
-            <a id="delete-button"  class="delete"  href="{{ route('deleteplant', ['plant' => $plant]) }}"
+            <a class="round-btn" href="#" @click="deleteopen = false">Cancel</a>
+            <a id="delete-button"  class="round-btn delete"  href="{{ route('deleteplant', ['plant' => $plant]) }}"
                 onclick="event.preventDefault();
                 document.getElementById('delete-form-{{ $plant->id }}').submit();">
                Delete</a>

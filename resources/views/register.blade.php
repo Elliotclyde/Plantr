@@ -4,75 +4,67 @@
 
 @section('content')
 
+
 <form action="/register" method="POST" x-data="getData()" id="register-form"
-x-on:submit.prevent="if(Object.keys(data).filter(key=>data[key].isValid!==true).length===0){
-    $el.submit()
-    }else{console.log('not sunbmited')}">
+data-server-errors="[@if($errors->any())
+        @foreach($errors->all() as $index=>$error) 
+            @if($index!=0){{',\''. $error.'\''}}  
+            @else {{'\''.$error.'\''}} 
+            @endif 
+        @endforeach 
+    @endif]">
     @csrf
     <p class="logo-no-header"><span class="logo-text-no-header">Plantr</span>
         <x-svg-plantrlogo />
     </p>
-    <p class="formerror" x-bind:class="{'visible':(serverSideFormErrors.length>0)}"  x-text="serverSideFormErrors"></p>
+    <template x-for="(error, index) in serverSideFormErrors" :key="index">
+            <p class="formerror" x-text="error"></p>
+    </template>
 
     <label for="name">Name</label>
-    <input x-bind:class="{'invalid':showAsInvalid(data,'name')}" 
-        @input="inputChange({data:data,serverErrors:serverSideFormErrors,event:$event})" 
-        name="name"  placeholder="Name" data-rules="['required']"
-        id="name" type="text" @blur="data.name.blurred=true" value="{{old('name')}}">  
-        <p class="formerror" x-bind:class="{'visible':showAsInvalid(data,'name')}">Name is required</p>
+    <input name="name"  placeholder="Name" data-rules="['required']" 
+        @input="mutateFormState(formState)"
+        @blur="blur(formState,'name');mutateFormState(formState);"
+        x-bind:class="{'invalid':(showsInvalid(formState,'name'))}" 
+        id="name" type="text" value="{{old('name')}}">  
+        <p x-show="showsInvalid(formState,'name')" class="formerror" >Name is required</p>
 
         <label for="username">Username</label>
-        <input x-bind:class="{'invalid':showAsInvalid(data,'username')}" data-rules="['required']"
-        @input="inputChange({data:data,serverErrors:serverSideFormErrors,event:$event})" 
-            id="username" type="text" name="username" placeholder="Username" @blur="data.username.blurred=true" value="{{old('username')}}">
-        <p class="formerror"  x-bind:class="{'visible':showAsInvalid(data,'username')}">Username is required</p>
+        <input data-rules="['required']"
+        @input="mutateFormState(formState)"
+        @blur="blur(formState,'username');mutateFormState(formState)"
+        x-bind:class="{'invalid':(showsInvalid(formState,'username'))}" 
+            id="username" type="text" name="username" placeholder="Username" value="{{old('username')}}">
+        <p x-show="showsInvalid(formState,'username')" class="formerror">Username is required</p>
 
         <label for="email">Email</label>
-        <input x-bind:class="{'invalid': showAsInvalid(data,'email')}" data-rules="['required','email']"
-        @input="inputChange({data:data,serverErrors:serverSideFormErrors,event:$event})" 
-        " @blur="data.email.blurred=true" id="email" type="email" name="email"
+        <input data-rules="['required','email']"id="email" type="email" name="email"
+        @input="mutateFormState(formState)"
+        @blur="blur(formState,'email');mutateFormState(formState)"
+        x-bind:class="{'invalid':(showsInvalid(formState,'email'))}" 
         placeholder="Email address" value="{{old('email')}}">
-        <p class="formerror" x-bind:class="{'visible':showAsInvalid(data,'email')}">Please enter valid email address</p>
+        <p x-show="showsInvalid(formState,'email')" class="formerror">Please enter valid email address</p>
 
         <label for="password">Password</label>
-        <input x-bind:class="{'invalid': showAsInvalid(data,'password')}" data-rules="['required','minimum:8']"
-        @input="inputChange({data:data,serverErrors:serverSideFormErrors,event:$event})" 
-         @blur="data.password.blurred=true" id="password" type="password" name="password"
+        <input data-rules="['required','minimum:8']"
+        @input="mutateFormState(formState)"
+        @blur="blur(formState,'password');mutateFormState(formState)"
+        x-bind:class="{'invalid':(showsInvalid(formState,'password'))}" 
+       id="password" type="password" name="password"
         placeholder="Password">
-        <p class="formerror" x-bind:class="{'visible':showAsInvalid(data,'password')}">Please enter password of at least 8 characters</p>
+        <p x-show="showsInvalid(formState,'password')" class="formerror">Please enter password of at least 8 characters</p>
 
         <label for="password-confirm">Confirm Password</label>
-        <input x-bind:class="{'invalid':showAsInvalid(data,'password_confirmation')}" data-rules="['required','minimum:8']"
-        @input="inputChange({data:data,serverErrors:serverSideFormErrors,event:$event})" 
-        @blur="data.password_confirmation.blurred=true" id="password-confirm" type="password"
+        <input data-rules="['required','minimum:8','matchingPassword']"
+        @input="mutateFormState(formState)"
+        @blur="blur(formState,'password_confirmation');mutateFormState(formState)"
+        x-bind:class="{'invalid':(showsInvalid(formState,'password_confirmation'))}" 
+         id="password-confirm" type="password"
         name="password_confirmation" placeholder="Confirm Password" >
-        <p class="formerror" x-bind:class="{'visible':showAsInvalid(data,'password_confirmation')}">Please confirm password</p> 
+        <p x-show="showsInvalid(formState,'password_confirmation')" class="formerror">Please confirm matching password</p> 
 
     <input class="round-btn" type="submit" value="Register">
-    <script defer>
-        function inputChange({data,event,serverErrors}){
-            data[event.target.name].isValid= Iodine.is(event.target.value,eval(event.target.dataset.rules));
-            data[event.target.name].showAsInvalid = (data[event.target.name].blurred) && (data[event.target.name].isValid!==true);
-            serverErrors.length=0;
-        }
-        function showAsInvalid(data,name){
-           return (data[name].blurred && data[name].isValid!==true);
-         }
-        
-        function getInitFormValues(){
-            let initFormValues= {};
-            [...document.querySelectorAll('[type=text],[type=email],[type=password]')].map(
-                (e)=>{initFormValues[e.name]={blurred: false,isValid: Iodine.is(e.value,eval(e.dataset.rules)),showAsInvalid:false}});
-            return initFormValues;
-        };
-
-        function getData() {
-            return {
-                data:getInitFormValues(),
-                serverSideFormErrors:[@if($errors->any()) @foreach($errors->all() as $error)"{{$error}}" @endforeach @endif]
-            }
-        }
-    </script>
     
 </form>
+
 @endsection

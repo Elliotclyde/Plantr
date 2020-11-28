@@ -4,7 +4,9 @@
     box-sizing: border-box;
 
 }
-
+*:-webkit-autofill-webkit-autofill{
+    background-color: inherit;
+}
 fieldset {
     border: 0;
 }
@@ -32,9 +34,11 @@ body {
     --grey:hsl(120deg, 0%, 85%);
     --dark-grey: hsl(120deg, 0%, 45%);
     --greener-grey: hsl(120deg, 20%, 70%);
+    --even-greener-grey: hsl(120deg, 30%, 70%);
     --main-red:hsl(0, 70%, 56%);
     --darker-red:hsl(0, 99%, 35%);
     --darkest-red:hsl(0, 99%, 25%);
+    --focus-red:hsl(0deg, 100%, 60%);
     --lighter-red:hsl(0, 28%, 65%);
     --lightest-red:hsl(0, 15%, 75%);
 
@@ -261,12 +265,7 @@ form input {
 .formerror{
     color:var(--darker-red);
     margin-bottom: 1em;
-    display:none;
     font-size: 0.75em;
-}
-
-.formerror.visible{
-    display:block;
 }
 
 form input:focus{
@@ -392,11 +391,16 @@ div.plant-display {
     max-height: inherit;
 }
 
-.plant-type-radio:focus+label,
 .plant-type-radio:checked+label {
     outline: var(--dark-green) auto 5px;
     background-color: var(--greener-grey);
 }
+
+.plant-type-radio:focus+label {
+    box-shadow: var(--even-lighter-green-black) 0px 0px 1em;
+    background-color: var(--even-greener-grey);
+}
+
 
 .prop-type-input-container {
     display: flex;
@@ -432,12 +436,15 @@ div.plant-display {
     max-height: inherit;
 }
 
-.prop-type-radio:focus+label,
 .prop-type-radio:checked+label {
     outline: var(--dark-green) auto 5px;
     background-color: var(--greener-grey);
 }
 
+.prop-type-radio:focus+label{
+    background-color: var(--even-greener-grey);
+    box-shadow: var(--even-lighter-green-black) 0px 0px 1em;
+}
 .prop-type {
     position: absolute;
     font-size: 0.8em;
@@ -735,9 +742,9 @@ margin-bottom: 2rem;
 .delete-modal-actions{
     margin-top: 1em;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
 }
-.delete-modal-actions a{
+/* .delete-modal-actions a{
     padding: 1em 2em;
     background-color: var(--green-grey);
 }
@@ -746,14 +753,15 @@ margin-bottom: 2rem;
     outline: none;
     background-color: var(--greener-grey);
     box-shadow: 1px 1px 5px var(--lighter-green-black);
-}
+} */
 .delete-modal-actions a.delete{
+    margin-top: 1em;
 background-color: var(--main-red);
 }
 .delete-modal-actions a.delete:focus,
 .delete-modal-actions a.delete:hover{
     outline: none;
-    background-color:var(--darker-red);
+    background-color:var(--focus-red);
     box-shadow: 1px 1px 5px var(--darker-red);
     }
 

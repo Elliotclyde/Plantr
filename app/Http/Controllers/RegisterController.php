@@ -17,9 +17,9 @@ class RegisterController extends Controller
     public function tryRegister(){
         $this->validate(request(), [
             'name' => ['required',new FullnameRule()],
-            'email' => 'required|email',
+            'email' => 'required|email|unique:users,email',
             'password' => 'required|confirmed|min:6',
-            'username' => 'required|alphanum'
+            'username' => 'required|alphanum|unique:users,username'
         ]);
         $data = request(['name', 'email', 'password','username']);
 
