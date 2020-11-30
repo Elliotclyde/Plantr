@@ -212,6 +212,14 @@ h1.hidden-heading {
     background-color: rgb(50, 150, 0);
 }
 
+.cancel-btn{
+    background-color: var(--grey);
+}
+.cancel-btn:hover,
+.cancel-btn:focus {
+    background-color: var(--green-grey);
+}
+
 .activity-cards {
     display: flex;
     justify-content: space-around;
@@ -267,6 +275,10 @@ form input {
     margin-bottom: 1em;
     font-size: 0.75em;
 }
+.server-form-error{
+    color:var(--darker-red);
+    font-size: 0.75em;
+}
 
 form input:focus{
     outline: none;
@@ -303,11 +315,6 @@ form .logo-no-header {
     text-align: center;
 }
 
-.home-link a:hover,
-.home-link a:focus {
-    background-color: var(--green-grey);
-}
-
 form.new-plant-form {
     width: min(80vw, 1000px);
     margin: 2em auto 0;
@@ -318,10 +325,20 @@ form.new-plant-form {
     font-weight: bold;
 }
 
+.new-plant-form>p.date-message{
+    margin-bottom: 2em;
+    font-weight: normal;
+}
+.new-plant-form>p.date-message.bad-time{
+    color:var(--darker-red)
+}
+
 .new-plant-form>input {
     margin-bottom: 2em;
 }
-
+#planted{
+    margin-bottom: 1em;
+}
 .plant-type-container {
     width: 100%;
     margin-bottom: 2em;
@@ -905,4 +922,8 @@ background-color: var(--main-red);
 }
 .invalid:focus{
     background-color: var(--grey);
+}
+.content-section{
+        width: min(80vw, 1000px);
+        margin: 2em auto 0;
 }

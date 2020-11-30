@@ -39,10 +39,10 @@
    
     <div class="modal-wrapper" x-show="transplantopen">
     <form class="transplant-modal" method="POST" action="{{route('transplant',['plant' => $plant])}}" @click.away="transplantopen=false">
-        <h2>Transplant</h2>
+        <h2>Transplant {{ucfirst($plant->type)}}</h2>
         <label for="transplant-date">Transplant date: </label>
         <input id="transplant-date" type="date" name="transplanted" value="{{(new \Carbon\Carbon())->tz('Pacific/Auckland')->format('Y-m-d')}}">
-        <input class="round-btn" type="submit" value="submit">
+        <input class="round-btn" type="submit" value="Transplant">
         @csrf
     </form>
 </div>
@@ -53,7 +53,7 @@
             <h2>Delete</h2>
             <label for="delete-button">Are you sure?</label>
             <div class="delete-modal-actions">
-            <a class="round-btn" href="#" @click="deleteopen = false">Cancel</a>
+            <a class="round-btn cancel-btn" href="#" @click="deleteopen = false">Cancel</a>
             <a id="delete-button"  class="round-btn delete"  href="{{ route('deleteplant', ['plant' => $plant]) }}"
                 onclick="event.preventDefault();
                 document.getElementById('delete-form-{{ $plant->id }}').submit();">
