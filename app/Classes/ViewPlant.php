@@ -19,8 +19,9 @@ class ViewPlant
         $viewPlant->harvestStart = self::getCarbonDate($plant->planted)->addDays($plantDetails->daystoharveststart)->format('d/m/Y');
         $viewPlant->harvestEnd = self::getCarbonDate($plant->planted)->addDays($plantDetails->daystoharvestend)->format('d/m/Y');
         $viewPlant->diffToHarvest = self::getDiffToHarvest($plant, $plantDetails);
-
-        $viewPlant->daysSincePlant = self::getCarbonDate($viewPlant->planted)->diffForHumans();
+        $viewPlant->estimatedHarvestDate = self::getCarbonDate($plant->planted)->addDays(round(($plantDetails->daystoharveststart + $plantDetails->daystoharvestend) / 2))->format('d/m/Y');
+  
+        $viewPlant->daysSincePlant = self::getCarbonDate($viewPlant->planted)->midDay()->diffForHumans(Carbon::now('pacific/auckland')->midDay(), ['syntax' => Carbon::DIFF_RELATIVE_TO_NOW,'options' => Carbon::ONE_DAY_WORDS ]);
         $viewPlant->planted = self::getCarbonDate($plant->planted)->format('d/m/Y');
 
         $viewPlant->svgPath = $plantDetails->svg_path;
@@ -42,7 +43,7 @@ class ViewPlant
 
     private static function getCarbonDate($dateString)
     {
-        return new Carbon($dateString);
+        return new Carbon($dateString,'pacific/auckland');
     }
     private static function getDiffToHarvest($viewPlant, $plantDetails)
     {

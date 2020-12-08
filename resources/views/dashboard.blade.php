@@ -15,7 +15,7 @@
             <div class="plant-container-inner">
         <h3><div>
             <span class="plant-title">{{$plant->quantity}} {{ucfirst($plant->type)}}</span>
-            <span class="plant-subtitle">Planted on:<br/> <span class="plant-subtitle-date">{{$plant->planted}}</span></span>
+            <span class="plant-subtitle">Ready to harvest:<br/> <span class="plant-subtitle-date">{{$plant->estimatedHarvestDate}}</span></span>
         </div></h3>
         @svg($plant->svgPath . $plant->svgNum)
         <div class="progress-bar">

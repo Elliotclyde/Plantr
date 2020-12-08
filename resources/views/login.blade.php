@@ -4,39 +4,19 @@
 
     @section('content')
     <h1 class="hidden-heading">Plantr 2.0 Login</h1>
-    <form action="/login" method="post" x-data="getData('login-form')" id="login-form"
-    x-on:submit.prevent="if(Object.keys(formState).filter(key=>formState[key].isValid!==true).length===0){$el.submit()}"
-    data-server-errors="[@if($errors->any())
-        @foreach($errors->all() as $index=>$error) 
-            @if($index!=0){{',\''. addslashes($error).'\''}}  
-            @else {{'\''.addslashes($error).'\''}} 
-            @endif 
-        @endforeach 
-    @endif]"
-    >
-    <p class="logo-no-header"><span class="logo-text-no-header">Plantr</span><x-svg-plantrlogo/></p>
+    <form  action="/login" method="POST" x-data="form()" x-init="init()" @focusout="change" @input="change" @submit="submit">
+        <p class="logo-no-header"><span class="logo-text-no-header">Plantr</span><x-svg-plantrlogo/></p>
     @csrf
-
-    <label for="username">Username</label>
-    <input type="username" name="username" id="username" placeholder="Username"
-     data-rules="['required']" 
-    @input="mutateFormState(formState)"
-    @blur="blur(formState,'username');mutateFormState(formState);"
-    x-bind:class="{'invalid':(showsInvalid(formState,'username'))}" >
-    <p x-show="showsInvalid(formState,'username')" class="formerror" >Username is required</p>
-
-    <label for="password">Password</label>
-    <input type="password" name="password" id="password" placeholder="Password"
-    data-rules="['required']" 
-    @input="mutateFormState(formState)"
-    @blur="blur(formState,'password');mutateFormState(formState);"
-    x-bind:class="{'invalid':(showsInvalid(formState,'password'))}">
-    <p x-show="showsInvalid(formState,'password')" class="formerror" >Password is required</p>
-
-    <input class="round-btn" type="submit" value="Log in">
-    <template x-for="(error, index) in serverSideFormErrors" :key="index">
-        <p class="server-form-error" x-text="error"></p>
-    </template>
+        <label for="username">Username</label>
+        <input name="username" id="username" type="text" value="{{old('username')}}"
+         x-bind:class="{'invalid':username.errorMessage}" data-rules='["required"]' data-server-errors='{!! json_encode($errors->get('username'))!!}'>
+        <p class="error-message" x-show.transition.in="username.errorMessage" x-text="username.errorMessage"></p>
+      
+        <label for="password">Password</label>
+        <input name="password" type="password" id="password"
+        x-bind:class="{'invalid':password.errorMessage}" data-rules='["required","minimum:8"]' data-server-errors='{!! json_encode($errors->get('password'))!!}'>
+        <p class="error-message" x-show.transition.in="password.errorMessage" x-text="password.errorMessage"></p>
+        <input class="round-btn" type="submit" value="Log in">
     </form>
     <div class="home-link"><a class=" round-btn"  href="{{route('welcome')}}">Home</a></div>
     @endsection

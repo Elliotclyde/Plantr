@@ -19,7 +19,7 @@ class RegisterController extends Controller
             'name' => ['required',new FullnameRule()],
             'email' => 'required|email|unique:users,email',
             'password' => 'required|confirmed|min:8',
-            'username' => 'required|alphanum|unique:users,username'
+            'username' => 'required|unique:users,username'
         ]);
         $data = request(['name', 'email', 'password','username']);
 
