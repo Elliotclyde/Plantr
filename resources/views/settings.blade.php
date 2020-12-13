@@ -44,14 +44,12 @@
       
         <label for="newpassword">New Password</label>
         <input name="newpassword" type="password" id="newpassword" 
-        x-bind:class="{'invalid':newpassword.errorMessage}" data-server-errors='{!! json_encode($errors->get('newpassword'))!!}'>
-        <p class="error-message" x-show.transition.in="newpassword.errorMessage" x-text="newpassword.errorMessage"></p>
+         data-server-errors='{!! json_encode($errors->get('newpassword'))!!}'>
+        <p class="error-message"></p>
       
         <label for="new_password_confirmation">Confirm Password</label>
-        <input name="new_password_confirmation" type="password" id=new_password_confirmation" 
-         x-bind:class="{'invalid':new_password_confirmation.errorMessage}"
-         data-server-errors='{!! json_encode($errors->get('new_password_confirmation'))!!}'>
-        <p class="error-message" x-show.transition.in="new_password_confirmation.errorMessage" x-text="new_password_confirmation.errorMessage"></p>
+        <input name="new_password_confirmation" type="password" id="new_password_confirmation">
+        <p class="error-message"></p>
       
         <input type="submit">
       </form>

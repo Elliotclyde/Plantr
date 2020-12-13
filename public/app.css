@@ -529,7 +529,7 @@ div.plant-display {
 
 .plant-container::before {
     content: "";
-    padding-top: 177.777%;
+    padding-top: calc(182% + 11px);
     display: block;
 }
 
@@ -789,7 +789,6 @@ background-color: var(--main-red);
     .profile-cont{
         margin: 2rem 2rem 0 2rem;
         padding:0 6rem ;
-        background-color: var(--green-greyest);
     }
     .profile-cont h2{
         font-family: aadam;
