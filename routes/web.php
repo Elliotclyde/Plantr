@@ -58,6 +58,11 @@ Route::get('/dashboard', function () {
     return View::make('dashboard',['plants'=>$viewPlants,'name'=>$user->name]);
 })->middleware('auth')->name('dashboard');
 
+Route::get('/settings',function(){
+    $user = Auth::user();
+    return View::make('settings',['user'=>$user]);
+})->middleware('auth')->name('settings');
+
 //private plant routes
 
 Route::middleware(['auth'])->group(function(){

@@ -19,6 +19,8 @@
                 <li><a href="{{route('about')}}">About</a></li>
                 @if (!Auth::check())
                 <li class="login"><a class="round-btn" href="{{route('login')}}">Login</a></li>
+                @else
+                <li><a href="{{route('settings')}}">Settings</a></li>
                 @endif
             </ul>
         </header>

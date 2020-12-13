@@ -23,10 +23,11 @@ body {
     font-size: calc(7px + 1.3vw);
     width: 100%;
 
-    --main-green: hsl(120deg 50% 30%);
-    --dark-green: hsl(120deg 40% 17%);
-    --green-white: hsl(120deg 17% 91%);
-    --green-black: hsl(120deg 70% 10%); 
+    --main-green: hsl(120deg, 50%, 30%);
+    --dark-green: hsl(120deg, 40%, 17%);
+    --green-white: hsl(120deg, 17%, 91%);
+    --white-semigreen: hsl(120deg, 8%, 95%);
+    --green-black: hsl(120deg, 70%, 10%); 
     --lighter-green-black: hsl(120deg, 20%, 25%);
     --even-lighter-green-black: hsl(120deg, 10%, 35%);
     --green-grey: hsl(120deg, 15%, 80%);
@@ -43,6 +44,7 @@ body {
     --lightest-red:hsl(0, 15%, 75%);
 
     --transparent-green-black: hsla(120deg, 80%, 5%, 0.5);
+    --transparent-green: hsla(120deg, 50%, 30%, 0.5);
     color: var(--green-black);
     background-color: var(--green-white);
 }
@@ -171,6 +173,15 @@ h1.hidden-heading {
     white-space: pre;
 }
 
+p{
+    margin-bottom: 1em;
+}
+h2{
+    margin-bottom: 1em;
+}
+h3{
+    margin-bottom: 1em;
+}
 
 
 .round-btn {
@@ -421,7 +432,6 @@ div.plant-display {
     background-color: var(--even-greener-grey);
 }
 
-
 .prop-type-input-container {
     display: flex;
     margin-bottom: 2em;
@@ -509,6 +519,7 @@ div.plant-display {
 .plants-container>h2 {
     font-family: aadam;
     font-size:1.75em;
+    margin-bottom: 0;
 }
 
 .plant-container {
@@ -613,7 +624,7 @@ div.plant-display {
     height: 0;
     width: 100%;
     text-align: center;
-    padding-bottom: 107%;
+    padding-bottom: 106.5%;
 }
 .progress-bar.new-plant-bar{
     background-color: var(--grey);
@@ -764,16 +775,6 @@ margin-bottom: 2rem;
     display: flex;
     flex-direction: column;
 }
-/* .delete-modal-actions a{
-    padding: 1em 2em;
-    background-color: var(--green-grey);
-}
-.delete-modal-actions a:focus,
-.delete-modal-actions a:hover{
-    outline: none;
-    background-color: var(--greener-grey);
-    box-shadow: 1px 1px 5px var(--lighter-green-black);
-} */
 .delete-modal-actions a.delete{
     margin-top: 1em;
 background-color: var(--main-red);
@@ -783,6 +784,46 @@ background-color: var(--main-red);
     outline: none;
     background-color:var(--focus-red);
     box-shadow: 1px 1px 5px var(--darker-red);
+    }
+
+    .profile-cont{
+        margin: 2rem 2rem 0 2rem;
+        padding:0 6rem ;
+        background-color: var(--green-greyest);
+    }
+    .profile-cont h2{
+        font-family: aadam;
+    }
+    .profile-cont h3{
+        font-family: aadam;
+    }
+    .profile-cont>div{
+        margin:0 0 2rem 0;
+    }
+    .logout-open{
+        background-color: var(--green-grey);
+        appearance: none;
+        border: none;
+        cursor: pointer;
+        font-size: 1em;
+        margin-left:2rem;
+        padding: 0 2rem;
+        border-radius: 1em;
+    }
+    .logout-open:hover,
+    .logout-open:focus {
+        background-color: rgb(96, 194, 47);
+    }
+    .logout-open:active {
+        background-color: rgb(50, 150, 0);
+    }
+
+    form.settingsform{
+        text-align: left;
+        font-size: 1em;
+        margin:  0;
+        width: inherit;
+        display: block;
     }
 
 @keyframes grow {
@@ -850,6 +891,7 @@ background-color: var(--main-red);
         width: 12em;
     }
 
+
     .plant-details-actions {
         flex-direction: row;
         justify-content: space-around;
@@ -874,6 +916,15 @@ background-color: var(--main-red);
     .plant-details-display>svg {
         transform: translateY(8%);
     }
+
+    .profile-cont{
+        margin: 2em 0 0 0;
+        padding:0 1rem;
+    }
+    .profile-cont>div{
+        margin:0 0 1rem 0;
+    }
+
 }
 
 @media only screen and (max-width: 400px) {
@@ -930,3 +981,4 @@ background-color: var(--main-red);
         width: min(80vw, 1000px);
         margin: 2em auto 0;
 }
+
