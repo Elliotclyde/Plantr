@@ -3,6 +3,7 @@
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PlantController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\SettingsController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Auth;
@@ -58,11 +59,14 @@ Route::get('/dashboard', function () {
     return View::make('dashboard',['plants'=>$viewPlants,'name'=>$user->name]);
 })->middleware('auth')->name('dashboard');
 
-Route::get('/settings',function(){
-    $user = Auth::user();
-    return View::make('settings',['user'=>$user]);
-})->middleware('auth')->name('settings');
+//private settings routes
 
+Route::middleware(['auth'])->group(function(){
+
+    Route::get('/settings',[SettingsController::class, 'showSettings'])->name('settings');
+    Route::post('/profile-change',[SettingsController::class, 'profileChange'])->name('profile-change');
+});
+ 
 //private plant routes
 
 Route::middleware(['auth'])->group(function(){

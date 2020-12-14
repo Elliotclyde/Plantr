@@ -3,8 +3,16 @@
 @section('title', 'Settings')
 
 @section('content')
+<div x-data="{showing:'',logoutopen:false}">
 
-<div class="profile-cont">
+<div class="settings-actions"  >
+    <a @click="showing='profilesettings'" x-bind:class="{'current':showing=='profilesettings'}" href="#"><x-svg-profile-button class="delete-button"/><span class="settings-caption">Profile Settings</span></a>
+    <a @click="showing='plantsettings'" x-bind:class="{'current':showing=='plantsettings'}" href="#">@svg('single-plants.cauli.cauli-2',["class"=>"delete-button"])<span class="settings-caption">Planting Settings</span></a>
+    <a href="{{route('dashboard')}}"><x-svg-back-home-button class="delete-button"/><span class="settings-caption">Dashboard</span></a>
+</div>
+
+
+<div class="profile-cont" x-show="showing=='profilesettings'">
     <h2>Profile - {{$user->name}}</h2>
     <div x-data="{logoutopen:false}" >
         Not {{$user->name}}?<button class="logout-open"  href="#" @click="logoutopen = true">Logout</button>
@@ -19,8 +27,8 @@
             </div>
         </div>
     </div>
-<h3>Change details?</h3>
-    <form class="settingsform"  action="/settings-change" method="POST" x-data="form()" x-init="init()" @focusout="change" @input="change" @submit="submit">
+    <h3>Change details</h3>
+    <form class="settingsform"  action="/profile-change" method="POST" x-data="form()" x-init="init()" @focusout="change" @input="change" @submit="submit">
     @csrf
         <label for="name">Name</label>
         <input name="name" id="name" type="text"  value="{{$user->name}}"
@@ -43,20 +51,16 @@
         <p class="error-message" x-show.transition.in="oldpassword.errorMessage" x-text="oldpassword.errorMessage"></p>
       
         <label for="newpassword">New Password</label>
-        <input name="newpassword" type="password" id="newpassword" 
+        <input name="newpassword" type="password" id="newpassword" data-server-errors='{!! json_encode($errors->get('oldpassword'))!!}'
          data-server-errors='{!! json_encode($errors->get('newpassword'))!!}'>
         <p class="error-message"></p>
       
-        <label for="new_password_confirmation">Confirm Password</label>
-        <input name="new_password_confirmation" type="password" id="new_password_confirmation">
+        <label for="newpassword_confirmation">Confirm Password</label>
+        <input name="newpassword_confirmation" type="password" id="newpassword_confirmation">
         <p class="error-message"></p>
       
         <input type="submit">
       </form>
-
-
 </div>
-<div class="plant-details-actions"  >
-<a href="{{route('dashboard')}}"><x-svg-back-home-button class="delete-button"/><span class="action-caption">Dashboard</span></a>
 </div>
 @endsection

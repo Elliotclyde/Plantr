@@ -27,11 +27,13 @@ body {
     --dark-green: hsl(120deg, 40%, 17%);
     --green-white: hsl(120deg, 17%, 91%);
     --white-semigreen: hsl(120deg, 8%, 95%);
+    --light-saturated-green:hsl(120deg,35%,85%);
     --green-black: hsl(120deg, 70%, 10%); 
     --lighter-green-black: hsl(120deg, 20%, 25%);
     --even-lighter-green-black: hsl(120deg, 10%, 35%);
     --green-grey: hsl(120deg, 15%, 80%);
     --green-greyest: hsl(120deg, 10%, 85%);
+    --white-grey:hsl(0deg,0%,88%);
     --grey:hsl(120deg, 0%, 85%);
     --dark-grey: hsl(120deg, 0%, 45%);
     --greener-grey: hsl(120deg, 20%, 70%);
@@ -174,9 +176,6 @@ h1.hidden-heading {
 }
 
 p{
-    margin-bottom: 1em;
-}
-h2{
     margin-bottom: 1em;
 }
 h3{
@@ -739,6 +738,58 @@ color: var(--main-green);
     height: 4em;
     border-radius: 2em;
 }
+
+
+
+.settings-actions{
+    width: min(80vw, 1400px);
+    margin: 1rem auto 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+
+.settings-actions>a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1em;
+    flex-direction: column;
+    padding-top: 1rem;
+    width:30%;
+}
+.settings-actions>a.current {
+   background-color: var(--white-grey);
+}
+
+
+.settings-actions>a:focus {
+    outline: none;
+}
+.settings-actions>a:hover,
+.settings-actions>a:focus{
+    background-color: var(--green-greyest);
+}
+
+.settings-actions>a:hover>svg,
+.settings-actions>a:focus>svg {
+    background-color: var(--greener-grey);
+    box-shadow: 1px 1px 5px var(--lighter-green-black);
+}
+
+.settings-actions>a>svg {
+    background-color: var(--green-grey);
+    padding: 0.4em;
+    width: 4em;
+    height: 4em;
+    border-radius: 2em;
+}
+.settings-caption{
+    text-align: center;
+    margin-top: 0.5em;
+}
+
 
 .modal-wrapper {
     display: flex;

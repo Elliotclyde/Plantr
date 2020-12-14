@@ -21,13 +21,9 @@ class RegisterController extends Controller
             'password' => 'required|confirmed|min:8',
             'username' => 'required|unique:users,username'
         ]);
-        $data = request(['name', 'email', 'password','username']);
 
-        $data['password'] = Hash::make( $data['password']);
-        $user = User::create($data);
+
         
-        Auth::login($user);
-        
-        return redirect()->to('/dashboard');
+        return redirect()->to('/settings');
     }
 }
