@@ -72,7 +72,9 @@ function form() {
           if (Iodine.is(input.value, JSON.parse(input.dataset.rules)) !== true) {
             event.preventDefault();
           }
+          this[input.name].blurred = true;
         });
+        this.updateState();
       },
       change: function (event) {
         if (!this[event.target.name]) {

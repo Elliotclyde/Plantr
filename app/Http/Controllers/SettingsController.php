@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Session;
 
 class SettingsController extends Controller
 {
@@ -13,15 +15,21 @@ class SettingsController extends Controller
             return View::make('settings',['user'=>$user]);
     }
     public function profileChange(Request $request){
-        $this->validate(request(), [
-            'name' => ['required',new FullnameRule()],
-            'email' => 'required|email|unique:users,email',
-            'newpassword' => 'confirmed|min:8',
-        ]);
-    //Needs to - check which elenments have been input
-    //make sure the password is always there and matches user password
-    //update entries which are existent for the user
-    //check that passwords match
-    //redirect back to settings
+        Session::flash('settingsOpen', 'profilesettings');
+    
+        $credentials = ['username'=>Auth::user()->username,'password'=>$request->input('oldpassword')];
+        if(!Auth::attempt($credentials)){
+            return Redirect::back()->withErrors(['oldpassword'=> 'Incorrect password']);
+            
+        }
+        else{
+            //here we will: 
+            //Check what info we got
+            //Validate the info 
+            //if incorrect we will redirect back with errors
+            //else we will  change the details 
+            //and send back some kind of message to the user using flash 
+            return 'correct password';
+        }
     }
 }

@@ -7,6 +7,11 @@
 *:-webkit-autofill-webkit-autofill{
     background-color: inherit;
 }
+
+html, body
+{
+    height: 100%;
+}
 fieldset {
     border: 0;
 }
@@ -54,6 +59,9 @@ body {
 a {
     color: inherit;
     text-decoration: none;
+}
+button{
+    font-size: inherit;
 }
 
 header {
@@ -199,7 +207,9 @@ h3{
 }
 
 .round-btn:hover,
-.round-btn:focus {
+.round-btn:focus,
+form.settingsform [type=submit]:focus,
+form.settingsform [type=submit]:hover {
     background-color: rgb(96, 194, 47);
 }
 
@@ -218,7 +228,8 @@ h3{
 .call-to-action:focus {
     background-color: rgb(96, 194, 47);
 }
-.round-btn:active {
+.round-btn:active,
+form.settingsform [type=submit]:active {
     background-color: rgb(50, 150, 0);
 }
 
@@ -228,6 +239,9 @@ h3{
 .cancel-btn:hover,
 .cancel-btn:focus {
     background-color: var(--green-grey);
+}
+.cancel-btn:active {
+    background-color: rgb(50, 150, 0);
 }
 
 .activity-cards {
@@ -796,7 +810,7 @@ color: var(--main-green);
     align-items: center;
     justify-content: center;
     background-color: var(--transparent-green-black);
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 0;
     width: 100%;
@@ -806,6 +820,7 @@ color: var(--main-green);
 .delete-modal {
     background-color: var(--green-white);
     padding: 6em;
+    text-align: center;
 }
 .transplant-modal{
     margin: 0;
@@ -816,9 +831,10 @@ color: var(--main-green);
 .transplant-modal > *:not(label){
 margin-bottom: 2rem;
 }
+.delete-modal h2, .transplant-modal h2{
+    font-family: aadam;
+}
 .delete-modal h2,.delete-modal label{
-    text-align: center;
-    
     display: block;
 }
 .delete-modal-actions{
@@ -830,6 +846,11 @@ margin-bottom: 2rem;
     margin-top: 1em;
 background-color: var(--main-red);
 }
+
+.delete-modal-actions button{
+    margin-top: 1em;
+}
+
 .delete-modal-actions a.delete:focus,
 .delete-modal-actions a.delete:hover{
     outline: none;
@@ -849,23 +870,8 @@ background-color: var(--main-red);
     }
     .profile-cont>div{
         margin:0 0 2rem 0;
-    }
-    .logout-open{
-        background-color: var(--green-grey);
-        appearance: none;
-        border: none;
-        cursor: pointer;
-        font-size: 1em;
-        margin-left:2rem;
-        padding: 0 2rem;
-        border-radius: 1em;
-    }
-    .logout-open:hover,
-    .logout-open:focus {
-        background-color: rgb(96, 194, 47);
-    }
-    .logout-open:active {
-        background-color: rgb(50, 150, 0);
+        display: flex;
+        flex-direction: column;
     }
 
     form.settingsform{
@@ -875,6 +881,17 @@ background-color: var(--main-red);
         width: inherit;
         display: block;
     }
+    form.settingsform [type=submit]{
+        border-radius: 30em;
+        text-align: center;
+        display: inline-flex;
+        justify-content: center;
+        background-color: var(--green-grey);
+        height: 2em;
+        width: 24vw;
+        align-items: center;
+    }
+    
 
 @keyframes grow {
     0% {
