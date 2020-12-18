@@ -8,7 +8,7 @@
         <link rel="stylesheet" href="{{asset('app.css')}}">
         <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.3/dist/alpine.min.js" defer></script>
         <script src="https://cdn.jsdelivr.net/gh/mattkingshott/iodine@3/dist/iodine.min.js" ></script>
-        <script src="./scripts/formscripts.js" ></script>
+        <script src="/scripts/formscripts.js" ></script>
     </head>
     <body>
         <header>
