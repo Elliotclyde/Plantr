@@ -25,7 +25,7 @@ class SettingsController extends Controller
 
         $credentials = ['username' => Auth::user()->username, 'password' => $request->input('oldpassword')];
         if (!Auth::attempt($credentials)) {
-            return Redirect::back()->withErrors(['oldpassword' => 'Incorrect password']);
+            return Redirect::back()->withErrors(['oldpassword' => 'Incorrect password'])->withInput();
         } else {
             //Filter out any details that weren't entered
             $entered = array_filter($request->all(), function ($input) {
@@ -40,7 +40,7 @@ class SettingsController extends Controller
             ]);
 
             if ($validator->fails()) {
-                return redirect('/settings#change-details')->withErrors($validator);
+                return redirect('/settings#change-details')->withErrors($validator)->withInput();
             }
             else{Session::flash('justUpdated',true);}
 
@@ -58,7 +58,7 @@ class SettingsController extends Controller
             
             $user = User::findOrFail(Auth::id());
             $user->fill($properties)->save();
-            return redirect('/settings');
+            return redirect('/settings')->withInput();
         }
     }
 }

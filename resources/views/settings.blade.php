@@ -24,8 +24,8 @@
 
 
 <div class="profile-cont" x-show="showing=='profilesettings'">
-    <h2>Profile Settings</h2>
-        <h3>Not {{$user->name}}?</h3>
+    <h2>Profile Settings for {{$user->username}}</h2>
+        <h3>Not {{$user->username}}?</h3>
         <button class="round-btn logout-btn"  href="#" @click="logoutopen = true">Logout</button>
         <div class="modal-wrapper" style="display: none;" x-show="logoutopen">
             <div class="delete-modal" style="display: none;" x-show="logoutopen" @click.away="logoutopen=false">
@@ -48,12 +48,12 @@
     <p class="error-message" x-show.transition.in="oldpassword.errorMessage" x-text="oldpassword.errorMessage"></p>
 
         <label for="name">Name</label>
-        <input name="name" id="name" type="text"  value="{{$user->name}}"
+        <input name="name" id="name" type="text"  value="{{old('name', $user->name)}}"
          x-bind:class="{'invalid':name.errorMessage}" data-rules='["lettersSpacesDashes"]' data-server-errors='{!! json_encode($errors->get('name'))!!}'>
         <p class="error-message" x-show.transition.in="name.errorMessage" x-text="name.errorMessage"></p>
-    
+
         <label for="email">Email</label>
-        <input name="email" type="email" id="email" value="{{$user->email}}"
+        <input name="email" type="email" id="email" value="{{old('email', $user->email)}}"
         x-bind:class="{'invalid':email.errorMessage}" data-rules='["email"]' data-server-errors='{!! json_encode($errors->get('email'))!!}'>
         <p class="error-message" x-show.transition.in="email.errorMessage" x-text="email.errorMessage"></p>
       
@@ -70,6 +70,26 @@
       
         <input type="submit">
       </form>
+</div>
+<div class="profile-cont" x-show="showing=='plantsettings'">
+    <h2>Planting Settings for {{$user->username}}</h2>
+    <form class="settingsform">
+    <label>Set climate</label>
+
+    <fieldset>
+        <input type="radio" id="Sub-tropical" name="climate" value="Sub-tropical">
+        <label for="Sub-tropical">Sub-tropical</label>
+        <input type="radio" id="temperate" name="climate" value="temperate">
+        <label for="temperate">temperate</label>
+        <input type="radio" id="cool" name="climate" value="cool">
+        <label for="cool">cool</label>
+    </fieldset>
+
+    <label>Turn Watering Notifications On/Off</label>
+    <input type="checkbox">
+    <label>Set Watering Frequency</label>
+    Every <input type="number" step="1"> days
+    </form>
 </div>
 </div>
 @endsection

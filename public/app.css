@@ -895,7 +895,7 @@ background-color: var(--main-red);
         width: 2em;
     }
     .profile-cont h3{
-        margin-bottom:0;
+        margin-bottom: 0.5em;
     }
     .profile-cont>div{
         margin:0 0 2rem 0;
