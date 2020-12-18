@@ -40,8 +40,9 @@ class SettingsController extends Controller
             ]);
 
             if ($validator->fails()) {
-                return Redirect::back()->withErrors($validator);
+                return redirect('/settings#change-details')->withErrors($validator);
             }
+            else{Session::flash('justUpdated',true);}
 
             // Filter out the 3 things we're updating
             $properties = array_filter($entered, function ($key) {
@@ -54,7 +55,7 @@ class SettingsController extends Controller
                 unset($properties['newpassword']);
             }
 
-            Session::flash('justUpdated',true);
+            
             $user = User::findOrFail(Auth::id());
             $user->fill($properties)->save();
             return redirect('/settings');

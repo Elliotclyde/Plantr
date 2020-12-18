@@ -6,7 +6,7 @@
 
 
 
-<div x-data="{showing:'{!! session('settingsOpen') !!}', logoutopen:false , justUpdated:'{!! session('settingsOpen') !!}'}">
+<div x-data="{showing:'{!! session('settingsOpen') !!}', logoutopen:false , justUpdated:'{!!session('justUpdated') !!}'}">
 
     <div class="modal-wrapper" style="display: none;"  x-show="justUpdated">
         <div class="delete-modal" style="display: none;" x-show="justUpdated" @click.away="justUpdated=false">
@@ -39,7 +39,7 @@
             </div>
     </div>
     <h3>Change details</h3>
-    <form class="settingsform"  action="/profile-change" method="POST" x-data="form()" x-init="init()" @focusout="change" @input="change" @submit="submit">
+    <form id="change-details" class="settingsform"  action="/profile-change" method="POST" x-data="form()" x-init="init()" @focusout="change" @input="change" @submit="submit">
     @csrf
 
     <label for="oldpassword">Current Password *</label>
