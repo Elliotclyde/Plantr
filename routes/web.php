@@ -59,10 +59,14 @@ Route::get('/dashboard', function () {
     return View::make('dashboard',['plants'=>$viewPlants,'name'=>$user->name]);
 })->middleware('auth')->name('dashboard');
 
+Route::post('/rain-off',function(){
+    session(['raining'=>false]);
+    return redirect()->back();
+})->middleware('auth')->name('rain-offs');
+
 //private settings routes
 
 Route::middleware(['auth'])->group(function(){
-
     Route::get('/settings',[SettingsController::class, 'showSettings'])->name('settings');
     Route::post('/profile-change',[SettingsController::class, 'profileChange'])->name('profile-change');
 });

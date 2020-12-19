@@ -11,6 +11,7 @@
         <script src="/scripts/formscripts.js" ></script>
     </head>
     <body>
+        @if(session('raining'))<h1>IT's RAINING</h1><form action="/rain-off" method="POST"> @csrf <input value="Turn off" type="submit"></form>@endif
         <header>
             <a class="logo" href="{{route('welcome')}}"><span class="logo-text">Plantr</span><x-svg-plantrlogo/></a>
             <ul>

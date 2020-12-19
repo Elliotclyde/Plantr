@@ -1039,14 +1039,16 @@ background-color: var(--main-red);
     .activity-cards {
         display: flex;
         flex-direction: column;
+        align-items: center;
     }
 
     .activity-cont {
-        width: 100%;
+        width: 80%;
+        margin-bottom: 1rem;
     }
 
     .selling-point {
-        top: 110vw;
+        top: 90vw;
         font-size: 1.75em;
     }
 

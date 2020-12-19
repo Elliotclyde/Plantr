@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Auth;
+use App\Classes\RainHandler;
 
 class LoginController extends Controller
 {
@@ -19,10 +20,11 @@ class LoginController extends Controller
         ]);
         $credentials = $request->only('username', 'password');
         if (Auth::attempt($credentials)) {
+            RainHandler::firstLogin();
             return redirect()->route('dashboard');
         }
         else{
-            return redirect()->route('login')->withErrors(['Sorry, that username and password didn\'t match']);
+            return redirect()->route('login')->withErrors(['password'=>"Sorry, that username and password didn't match"])->withInput();
         }
     }
     public function logout()

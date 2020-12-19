@@ -14,7 +14,7 @@
       
         <label for="password">Password</label>
         <input name="password" type="password" id="password"
-        x-bind:class="{'invalid':password.errorMessage}" data-rules='["required","minimum:8"]' data-server-errors='{!! json_encode($errors->get('password'))!!}'>
+        x-bind:class="{'invalid':password.errorMessage}" data-rules='["required","minimum:8"]' data-server-errors='{{ json_encode($errors->get('password'))}}'>
         <p class="error-message" x-show.transition.in="password.errorMessage" x-text="password.errorMessage"></p>
         <input class="round-btn" type="submit" value="Log in">
     </form>
