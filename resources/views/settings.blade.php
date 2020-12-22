@@ -76,13 +76,25 @@
     <form class="settingsform">
     <label>Set climate</label>
 
-    <fieldset>
-        <input type="radio" id="Sub-tropical" name="climate" value="Sub-tropical">
-        <label for="Sub-tropical">Sub-tropical</label>
-        <input type="radio" id="temperate" name="climate" value="temperate">
-        <label for="temperate">temperate</label>
-        <input type="radio" id="cool" name="climate" value="cool">
-        <label for="cool">cool</label>
+    <fieldset class="prop-type-input-container">
+        <input class="prop-type-radio" type="radio" id="sub-tropical" name="climate" value="Sub-tropical">
+        <label for="sub-tropical" class="prop-type-label" aria-label="sub-tropical">
+            @svg('climates.subtropical')
+                <p class="prop-type">Sub tropical</p>
+
+        </label>
+        <input class="prop-type-radio" type="radio" id="temperate" name="climate" value="temperate">
+        <label for="temperate" class="prop-type-label" aria-label="temperate">
+            @svg('climates.temperate')
+                <p class="prop-type">Temperate</p>
+
+        </label>
+        <input class="prop-type-radio" type="radio" id="cool" name="climate" value="cool">
+        <label for="cool" class="prop-type-label" aria-label="cool">
+            @svg('climates.cool')
+                <p class="prop-type">Cool</p>
+
+        </label>
     </fieldset>
 
     <label>Turn Watering Notifications On/Off</label>

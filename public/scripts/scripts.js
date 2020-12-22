@@ -1,3 +1,48 @@
+window.onload =function(){
+  console.log('loaded');
+  if (document.getElementById("raining")){
+    showRain();
+  }
+}
+
+const rainfallTime = 1.5;
+let rainingInterval;
+
+const showRain = function() {
+  console.log('showint');
+  const raindrop = document.createElement("div");
+  raindrop.id="raindropcontainer"
+  document.getElementById("raining").appendChild(raindrop);
+  let idIterator = 0;
+
+  rainingInterval = setInterval(function() {
+    createDrop(Math.floor(Math.random() * 100), "raindrop" + idIterator);
+    idIterator = idIterator + 1;
+  }, 300);
+}
+
+const stopRain = function() {
+  clearInterval(rainingInterval);
+  document.getElementById("container").removeChild(document.getElementById("raindropcontainer"))
+};
+
+const createDrop = function(xIndex, id) {
+  const cont = document.getElementById("raindropcontainer");
+  const raindrop = document.createElement("img");
+
+  raindrop.setAttribute("id", id);
+  raindrop.setAttribute("src", "/images/raindrop.svg");
+  raindrop.setAttribute("class", "raindrop");
+  raindrop.style.left = xIndex + "vw";
+  raindrop.style.animation = `rainfall ${rainfallTime}s linear normal`;
+  cont.appendChild(raindrop);
+
+  setTimeout(function() {
+    cont.removeChild(document.getElementById(id));
+  }, rainfallTime * 1000);
+};
+
+
 function checkSeason(selected, planted) {
     let season = JSON.parse(
         document.getElementById("date-message").dataset.plantingTimes

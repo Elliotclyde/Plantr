@@ -8,10 +8,10 @@
         <link rel="shortcut icon" href="/favicon.svg" type="image/x-icon">
         <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.3/dist/alpine.min.js" defer></script>
         <script src="https://cdn.jsdelivr.net/gh/mattkingshott/iodine@3/dist/iodine.min.js" ></script>
-        <script src="/scripts/formscripts.js" ></script>
+        <script src="/scripts/scripts.js" ></script>
     </head>
     <body>
-    <div class="container">
+    <div class="container" id="container">
             @yield('content')
     </div>
     <footer>Copyright Hugh Haworth {{now()->year}} </footer>

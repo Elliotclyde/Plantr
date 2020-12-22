@@ -8,14 +8,12 @@
         <link rel="stylesheet" href="{{asset('app.css')}}">
         <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.3/dist/alpine.min.js" defer></script>
         <script src="https://cdn.jsdelivr.net/gh/mattkingshott/iodine@3/dist/iodine.min.js" ></script>
-        <script src="/scripts/formscripts.js" ></script>
+        <script src="/scripts/scripts.js" ></script>
     </head>
     <body>
-        @if(session('raining'))<h1>IT's RAINING</h1><form action="/rain-off" method="POST"> @csrf <input value="Turn off" type="submit"></form>@endif
         <header>
             <a class="logo" href="{{route('welcome')}}"><span class="logo-text">Plantr</span><x-svg-plantrlogo/></a>
             <ul>
-                
                 <li><a href="{{route('resources')}}">Resources</a></li>
                 <li><a href="{{route('about')}}">About</a></li>
                 @if (!Auth::check())
@@ -25,9 +23,18 @@
                 @endif
             </ul>
         </header>
-    <div class="container">
+    <div class="container" id="container">
             @yield('content')
     </div>
+    @if(session('raining'))
+        <div id="raining" class="raining-modal-container" id="raining-modal-container">
+            <div class="raining-modal">
+                <h3 >Time to water your plants</h3>
+                <form action="/rain-off" method="POST"> @csrf 
+                    <input class="round-btn" value="Okay" type="submit"> 
+                </form>
+            </div>
+        </div>@endif
     <footer>Copyright Hugh Haworth {{now()->year}} </footer>
     
     </body>
