@@ -69,9 +69,10 @@ Route::post('/rain-off',function(){
 Route::middleware(['auth'])->group(function(){
     Route::get('/settings',[SettingsController::class, 'showSettings'])->name('settings');
     Route::post('/profile-change',[SettingsController::class, 'profileChange'])->name('profile-change');
+    Route::post('/planting-change',[SettingsController::class, 'plantingChange'])->name('planting-change');
 });
  
-//private plant routes
+//private plant routes 
 
 Route::middleware(['auth'])->group(function(){
 

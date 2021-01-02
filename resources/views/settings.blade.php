@@ -8,14 +8,7 @@
 
 <div x-data="{showing:'{!! session('settingsOpen') !!}', logoutopen:false , justUpdated:'{!!session('justUpdated') !!}'}">
 
-    <div class="modal-wrapper" style="display: none;"  x-show="justUpdated">
-        <div class="delete-modal" style="display: none;" x-show="justUpdated" @click.away="justUpdated=false">
-           <h3>Your details have been updated</h3>
-            <button class="round-btn cancel-btn" @click="justUpdated = false">Okay</button>
-        </div>
-    </div>
-
-<div class="settings-actions"  >
+<div class="settings-actions">
     <a @click="showing!=='profilesettings'?showing='profilesettings':showing=''" x-bind:class="{'current':showing=='profilesettings'}" href="#"><x-svg-profile-button class="delete-button"/><span class="settings-caption">Profile Settings</span></a>
     <a @click="showing!=='plantsettings'?showing='plantsettings':showing=''" x-bind:class="{'current':showing=='plantsettings'}" href="#">@svg('single-plants.cauli.cauli-2',["class"=>"delete-button"])<span class="settings-caption">Planting Settings</span></a>
     <a href="{{route('dashboard')}}"><x-svg-back-home-button class="delete-button"/><span class="settings-caption">Dashboard</span></a>
@@ -24,7 +17,7 @@
 
 
 <div class="profile-cont" x-show="showing=='profilesettings'">
-    <h2>Profile Settings for {{$user->username}}</h2>
+    <h2>Profile Settings</h2>
         <h3>Not {{$user->username}}?</h3>
         <button class="round-btn logout-btn"  href="#" @click="logoutopen = true">Logout</button>
         <div class="modal-wrapper" style="display: none;" x-show="logoutopen">
@@ -72,36 +65,43 @@
       </form>
 </div>
 <div class="profile-cont" x-show="showing=='plantsettings'">
-    <h2>Planting Settings for {{$user->username}}</h2>
-    <form class="settingsform">
-    <label>Set climate</label>
-
+    <h2>Planting Settings</h2>
+    <form class="settingsform" x-data="{wateringtoggled:{{$user->rain_toggle ?'true':'false'}}}" action="/planting-change" method="POST">
+        @csrf
+    <h3>Set Climate</h3>
     <fieldset class="prop-type-input-container">
-        <input class="prop-type-radio" type="radio" id="sub-tropical" name="climate" value="Sub-tropical">
-        <label for="sub-tropical" class="prop-type-label" aria-label="sub-tropical">
+        <input class="prop-type-radio" type="radio" id="subtropical" name="climate" value="subtropical" {{$user->climate=="subtropical" ?'checked':''}}/>
+        <label for="subtropical" class="prop-type-label" aria-label="subtropical">
             @svg('climates.subtropical')
-                <p class="prop-type">Sub tropical</p>
+                <p class="climate-label">Sub tropical</p>
 
         </label>
-        <input class="prop-type-radio" type="radio" id="temperate" name="climate" value="temperate">
+        <input class="prop-type-radio" type="radio" id="temperate" name="climate" value="temperate" {{$user->climate=="temperate" ?'checked':''}}/>
         <label for="temperate" class="prop-type-label" aria-label="temperate">
             @svg('climates.temperate')
-                <p class="prop-type">Temperate</p>
+                <p class="climate-label">Temperate</p>
 
         </label>
-        <input class="prop-type-radio" type="radio" id="cool" name="climate" value="cool">
+        <input class="prop-type-radio" type="radio" id="cool" name="climate" value="cool" {{$user->climate=="cool" ?'checked':''}}>
         <label for="cool" class="prop-type-label" aria-label="cool">
             @svg('climates.cool')
-                <p class="prop-type">Cool</p>
+                <p class="climate-label">Cool</p>
 
         </label>
     </fieldset>
-
-    <label>Turn Watering Notifications On/Off</label>
-    <input type="checkbox">
-    <label>Set Watering Frequency</label>
-    Every <input type="number" step="1"> days
+    <label for="rain-toggle"><h3>Watering Reminders</h3></label>
+    <input class="rain-toggle" x-model="wateringtoggled" id="rain-toggle" name="rain_toggle" type="checkbox" />
+    <label class="rain-frequency-label" for="rain-frequency" ><h3>Watering Frequency</h3></label>
+    <div> Every <input x-bind:disabled="!wateringtoggled" value="{{old('rain_frequency', $user->rain_frequency)}}" max="10" class="rain-frequency" id="rain-frequency" name="rain_frequency" type="number" step="1"> days</div>
+    <input type="submit">
     </form>
+    
+</div>
+<div class="modal-wrapper" style="display: none;"  x-show="justUpdated">
+    <div class="delete-modal" style="display: none;" x-show="justUpdated" @click.away="justUpdated=false">
+       <h3>Details successfully updated</h3>
+        <button class="round-btn cancel-btn" @click="justUpdated = false">Okay</button>
+    </div>
 </div>
 </div>
 @endsection

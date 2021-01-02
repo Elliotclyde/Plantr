@@ -55,9 +55,39 @@ class SettingsController extends Controller
                 unset($properties['newpassword']);
             }
 
-            
+            Session::flash('justUpdated',true);
             $user = User::findOrFail(Auth::id());
             $user->fill($properties)->save();
+            return redirect('/settings')->withInput();
+        }
+    }
+    public function plantingChange(Request $request){
+        Session::flash('settingsOpen', 'plantsettings');
+        $input = $request->only(['climate','rain_toggle','rain_frequency']); 
+        if (array_key_exists('rain_toggle',$input)){
+            $input['rain_toggle']=true;
+        }
+        else {
+           $input['rain_toggle']=false;
+        }
+
+         $validator = Validator::make($input, [
+             'climate' => 'string',
+             'rain_toggle' => 'boolean',
+             'rain_frequency' => 'integer',
+         ]);
+         if ($validator->fails()) {
+            return redirect('/settings')->withErrors($validator)->withInput();
+        }
+        else{
+            $user = User::findOrFail(Auth::id());
+            $user->climate=$input['climate'];
+            $user->rain_toggle=$input['rain_toggle'];
+            if (array_key_exists('rain_frequency',$input)){
+                $user->rain_frequency=$input['rain_frequency'];
+            }
+            $user->save();
+            Session::flash('justUpdated',true);
             return redirect('/settings')->withInput();
         }
     }

@@ -27,7 +27,7 @@ class AddRainingToUsers extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('rain_frequencyh');
+            $table->dropColumn('rain_frequency');
             $table->dropColumn('rain_toggle');
         });
     }

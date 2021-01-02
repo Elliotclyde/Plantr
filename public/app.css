@@ -37,6 +37,8 @@ body {
     --lighter-green-black: hsl(120deg, 20%, 25%);
     --even-lighter-green-black: hsl(120deg, 10%, 35%);
     --green-grey: hsl(120deg, 15%, 80%);
+    --dark-green-grey:  hsl(120deg, 12%, 50%);
+    --greenish-grey: hsl(120deg, 20%, 85%);
     --green-greyest: hsl(120deg, 10%, 85%);
     --white-grey:hsl(0deg,0%,88%);
     --grey:hsl(120deg, 0%, 85%);
@@ -496,7 +498,14 @@ div.plant-display {
     transform: translateX(-50%);
     color: var(--green-white);
 }
-
+.climate-label{
+    position: absolute;
+    text-align: center;
+    font-size: 1em;
+    top: 1em;
+    width: 100%;
+    color: var(--green-white);
+}
 
 .plants {
     width: min(80vw, 1000px);
@@ -793,7 +802,7 @@ font-weight: 400;
     width:30%;
 }
 .settings-actions>a.current {
-   background-color: var(--white-grey);
+   background-color: var(--greenish-grey);
 }
 
 
@@ -802,7 +811,7 @@ font-weight: 400;
 }
 .settings-actions>a:hover,
 .settings-actions>a:focus{
-    background-color: var(--green-greyest);
+    background-color: var(--even-greener-grey);
 }
 
 .settings-actions>a:hover>svg,
@@ -968,7 +977,58 @@ background-color: var(--main-red);
         background-color: hsla(210deg,60%,70%);
         border: 2px solid  hsla(210deg,60%,20%);
       }
-      
+
+      .rain-toggle{
+               display:inline-block;
+               -webkit-appearance:none;
+               -moz-appearance:none;
+               appearance:none;
+               width: 4em;
+               height: 2em;
+               background-color: var(--grey);
+               position: relative;
+                border-radius:30px;
+                box-shadow:none;
+                margin-bottom:0;
+               }
+        .rain-toggle:focus{
+            background-color:var(--grey);
+        }
+        .rain-toggle:after{      
+                 content:'';
+                 display:inline-block;
+                 position:absolute;
+                 width: 1.7em;
+                 height: 1.7em;
+                 background-color: var(--dark-grey);
+                 top: 0.13em;
+                 left: 0.3em;
+                 border-radius:50%;
+                 transition: left 0.3s ease;
+               }
+             
+        .rain-toggle:checked{
+                background-color: var(--green-grey);
+            }
+        .rain-toggle:checked:after{
+                left: 2em; 
+                 background-color: var(--main-green);
+               }
+        .rain-toggle:focus:after{
+                 background-color: var(--dark-green-grey);
+            }
+        .rain-toggle:checked:focus:after{
+                 background-color: green;
+            }
+    
+      .rain-frequency{
+          display: inline;
+          width:fit-content;
+      }
+      input:disabled{
+          background-color: var(--grey);
+      }
+        
 
 @keyframes grow {
     0% {
