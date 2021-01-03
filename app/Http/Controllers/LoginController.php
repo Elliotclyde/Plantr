@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Auth;
 use App\Classes\RainHandler;
+use Illuminate\Support\Carbon;
+use App\Models\User;
 
 class LoginController extends Controller
 {
@@ -21,6 +23,9 @@ class LoginController extends Controller
         $credentials = $request->only('username', 'password');
         if (Auth::attempt($credentials)) {
             RainHandler::firstLogin();
+            $user = User::findorfail(Auth::id());  
+            $user->last_login = Carbon::now()->format('Y-m-d H:i:s');
+            $user->save();
             return redirect()->route('dashboard');
         }
         else{
