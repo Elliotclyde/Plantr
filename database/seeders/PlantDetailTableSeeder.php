@@ -23,7 +23,8 @@ class PlantDetailTableSeeder extends Seeder
             'seedlingage'=> 21,
             'seasonstart'=> 7,
             'seasonend'=> 4,
-            'tips'=> '["Harvest beetroot earlier for baby beets","Beetroot need phosphorus to develop","Plant beetroot in well draining soil"]'
+            'tips'=> '["Harvest beetroot earlier for baby beets","Beetroot need phosphorus to develop","Plant beetroot in well draining soil"]',
+            'svg_path' => 'single-plants.beetroot.beetroot-'
         ));
         PlantDetail::create(array(
             'type'     => 'broccoli',
@@ -33,6 +34,7 @@ class PlantDetailTableSeeder extends Seeder
             'seasonstart'=> 12,
             'seasonend'=> 5,
             'tips'=> '["Broccoli is a leafy crop and thrives with nitrogen fertiliser","A single broccoli plant should bear for many weeks","Plant broccoli in well draining soil"]'
+            ,'svg_path' => 'single-plants.broccoli.broccoli-'
         ));
 
         PlantDetail::create(array(
@@ -44,6 +46,7 @@ class PlantDetailTableSeeder extends Seeder
             'seasonend'=> 3,
             'tips'=> '[ "cauliflower is a leafy crop and thrives with nitrogen fertiliser","Dust or regularly spray cauliflower to keep caterpillars and aphids away"'.
             ',"Cut the white cauliflower curds while they\'re tight and solid"]'
+            ,'svg_path' => 'single-plants.cauli.cauli-'
         ));
         PlantDetail::create(array(
             'type'     => 'carrot',
@@ -56,6 +59,7 @@ class PlantDetailTableSeeder extends Seeder
             '"Thin carrot seedlings so they are 2-3cm apart",'.
             '"Do not overfeed carrots, especially with high nitrogen fertilisers",'.
             '"It can be problematic to plant carrots as transplants"]'
+            ,'svg_path' => 'single-plants.carrot.carrot-'
         ));
         PlantDetail::create(array(
             'type'     => 'spinach',
@@ -66,10 +70,11 @@ class PlantDetailTableSeeder extends Seeder
             'seasonend'=> 6,
             'tips'=> '["Make successive sowings every 3 to 4 weeks for a continuous supply",'.
             '"Straw mulch around the plants should keep dirt off their leaves",'.
-            '"Plant spinach in well draining soil"]'
+            '"Plant spinach in well draining soil"]',
+            'svg_path' => 'single-plants.spinach.spinach-'
         ));
         PlantDetail::create(array(
-            'type'     => 'shallot',
+            'type'     => 'onion',
             'daystoharveststart'=> 84,
             'daystoharvestend'=> 110,
             'seedlingage'=> 56,
@@ -77,7 +82,8 @@ class PlantDetailTableSeeder extends Seeder
             'seasonend'=> 6,
             'tips'=> '["Make successive sowings every 3 to 4 weeks for a continuous supply",'.
             '"Straw mulch around the plants should keep dirt off their leaves",'.
-            '"Plant spinach in well draining soil"]'
+            '"Plant onions in well draining soil"]',
+            'svg_path'=>'single-plants.onion.onion-'
         ));
     }
 }
