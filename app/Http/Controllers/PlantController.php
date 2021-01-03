@@ -37,6 +37,8 @@ class PlantController extends Controller
     }
 
     public function show(Plant $plant){
+        $plant->badge=null;
+        $plant->save();
         $viewPlant = ViewPlant::getViewPlant($plant);
         return View::make('plantdetails',['plant'=>$viewPlant]);
     }

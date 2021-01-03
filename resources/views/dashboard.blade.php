@@ -13,12 +13,17 @@
         <a href="{{route('showplant', ['plant'=>$plant->id])}}">
         <div class="plant-container">
             <div class="plant-container-inner {{$plant->state=="old"?"old":""}}">
+            @if($plant->badge)
+            @svg('ready-to-plant',['class'=>'badge'])
+            @endif
         <h3><div>
             <span class="plant-title">{{$plant->quantity}} {{ucfirst($plant->type)}}</span>
             @if($plant->state=="old")
             <span class="plant-subtitle">{{$plant->formattedState}}</span>
             @elseif($plant->state=="planned")
             <span class="plant-subtitle">Planned to plant on:<br/><span class="plant-subtitle-date">{{$plant->planted}}</span></span>
+            @elseif($plant->badge==="readytotransplant")
+            <span class="plant-subtitle">Ready to transplant</span>
             @elseif($plant->state=="harveststart"||$plant->state=="harvestend" )
             <span class="plant-subtitle">{{$plant->formattedState}}</span>
             @else

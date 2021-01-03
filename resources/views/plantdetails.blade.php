@@ -14,6 +14,8 @@
 <h2>Planting type:</h2><p>{{$plant->formattedPropogationType}}</p>
 @if(isset($plant->transplanted))
 <h2>Transplanting date:</h2><p>{{$plant->transplanted}}. {{$plant->daysSinceTransplant}}</p>
+@elseif($plant->propogation_type=="proptray")
+<h2>Ready to transplant:</h2><p>{{$plant->toTransplantDate}}. {{$plant->diffToTransplant}}</p>
 @endif
 <h2>Tip:</h2>
 <p>{{trim(json_decode($plant->details->tips)[rand(0,count(json_decode($plant->details->tips))-1)])}}</p>

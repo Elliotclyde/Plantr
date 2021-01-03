@@ -1209,3 +1209,26 @@ background-color: hsl(0deg 100% 75%);
 .content-section>h1 {
     margin-bottom: 1rem;
 }
+.plant-container-inner>svg.badge{
+    border: 0.1em solid hsl(0, 99%, 25%);
+    height: 1.7em;
+    background-color: var(--focus-red);
+    width: 1.7em;
+    border-radius: 50%;
+    right: -0.75em;
+    top: -0.75em;
+    position: absolute;
+    box-shadow: 0px 3px 3px hsla(0, 99%, 25%, 0.5);
+    animation: bounce 2s ease infinite;
+}
+@keyframes bounce{
+    0%{transform:translateY(0px) scale(1)}
+    25%{transform:translateY(-7px)scale(1.05)}
+    50%{transform:translateY(0px)scale(1)}
+    75%{transform:translateY(-7px)scale(1.05)}
+    100%{transform:translateY(0px)scale(1)}
+}
+
+.plants>a:hover .plant-container-inner>svg.badge, .plants>a:focus .plant-container-inner>svg.badge{
+    background-color: red ;
+}
