@@ -21,12 +21,12 @@
         <h3>Not {{$user->username}}?</h3>
         <button class="round-btn logout-btn"  href="#" @click="logoutopen = true">Logout</button>
         <div class="modal-wrapper" style="display: none;" x-show="logoutopen">
-            <div class="delete-modal" style="display: none;" x-show="logoutopen" @click.away="logoutopen=false">
+            <div class="delete-modal" style="display: none;" x-show="logoutopen;$nextTick(()=>document.getElementById('logout-button').focus());" @click.away="logoutopen=false">
                 <form id="logoutform" action="{{ route('logout') }}" method="POST" style="display: none;" method="POST" @click.away="logoutopen=false"> @csrf</form>     
                 <h2>Logout</h2>
                 <p>Are you sure?</p>
                 <div class="delete-modal-actions">
-                <button class="round-btn" @click="document.getElementById('logoutform').submit()" type="submit" value="logout">Logout</button>
+                <button id="logout-button" class="round-btn" @click="document.getElementById('logoutform').submit()" type="submit" value="logout">Logout</button>
                 <button class="round-btn cancel-btn" @click="logoutopen = false">Cancel</button>
                 </div>
             </div>
@@ -97,10 +97,10 @@
     </form>
     
 </div>
-<div class="modal-wrapper" style="display: none;"  x-show="justUpdated">
+<div class="modal-wrapper" style="display: none;"  x-show="justUpdated; $nextTick(()=>document.getElementById('close-modal-button').focus());">
     <div class="delete-modal" style="display: none;" x-show="justUpdated" @click.away="justUpdated=false">
        <h3>Details successfully updated</h3>
-        <button class="round-btn cancel-btn" @click="justUpdated = false">Okay</button>
+        <button  id="close-modal-button" class="round-btn cancel-btn" @click="justUpdated = false" wire>Okay</button>
     </div>
 </div>
 </div>

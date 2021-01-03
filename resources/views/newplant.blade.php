@@ -56,7 +56,7 @@
     'This is a good time to plant '+selected:
     'This is not such a good time to plant '+selected "></p>
     <label for="quantity">Select how many plants</label>
-    <input type="number" name="quantity" id="quantity" step="1" value="1" min="1" max="100">
+    <input  type="number" name="quantity" id="quantity" step="1" value="1" min="1" max="100">
 
     <p class="label">Choose planting method</p>
     <fieldset class="prop-type-input-container">

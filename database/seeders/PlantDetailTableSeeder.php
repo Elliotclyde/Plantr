@@ -42,7 +42,7 @@ class PlantDetailTableSeeder extends Seeder
             'seedlingage'=> 21,
             'seasonstart'=> 12,
             'seasonend'=> 3,
-            'tips'=> '[ "cauliflower is a leafy crop and thrives with nitrogen fertiliser","Dust or regularly spray cauliflower to keep catipillars and aphids away"'.
+            'tips'=> '[ "cauliflower is a leafy crop and thrives with nitrogen fertiliser","Dust or regularly spray cauliflower to keep caterpillars and aphids away"'.
             ',"Cut the white cauliflower curds while they\'re tight and solid"]'
         ));
         PlantDetail::create(array(

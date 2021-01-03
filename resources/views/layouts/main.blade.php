@@ -6,9 +6,10 @@
         <title>Plantr - @yield('title')</title>
         <link rel="shortcut icon" href="/favicon.svg" type="image/x-icon">
         <link rel="stylesheet" href="{{asset('app.css')}}">
+
         <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.3/dist/alpine.min.js" defer></script>
         <script src="https://cdn.jsdelivr.net/gh/mattkingshott/iodine@3/dist/iodine.min.js" ></script>
-        <script src="/scripts/scripts.js" ></script>
+
     </head>
     <body>
         <header>
@@ -31,11 +32,11 @@
             <div class="raining-modal">
                 <h3 >Time to water your plants</h3>
                 <form action="/rain-off" method="POST"> @csrf 
-                    <input class="round-btn" value="Okay" type="submit"> 
+                    <input class="round-btn" value="Okay" type="submit" autofocus> 
                 </form>
             </div>
         </div>@endif
     <footer>Copyright Hugh Haworth {{now()->year}} </footer>
-    
+    <script src="/scripts/scripts.js " ></script>
     </body>
 </html>

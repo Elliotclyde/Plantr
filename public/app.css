@@ -346,6 +346,7 @@ form>div{
 
 form.new-plant-form {
     width: min(80vw, 1000px);
+    max-width: 600px;
     margin: 2em auto 0;
 }
 
@@ -420,9 +421,9 @@ div.plant-display {
     cursor: pointer;
     width: 15vw;
     margin: 0.5vw;
-    max-width: 150px;
+    max-width: 90px;
     height: 15vw;
-    max-height: 150px;
+    max-height: 90px;
     position: relative;
     background-color: var(--green-grey);
 }
@@ -620,6 +621,9 @@ div.plant-display {
     width: 100%;
     height: 70%;
     width: 87%;
+}
+.old{
+    filter: grayscale(0.7);
 }
 
 .progress-bar {
@@ -859,6 +863,10 @@ font-weight: 400;
 .transplant-modal > *:not(label){
 margin-bottom: 2rem;
 }
+.transplant-date.invalid{
+margin-bottom: 0;
+}
+
 .delete-modal h2, .transplant-modal h2{
     font-family: aadam;
 }
@@ -872,7 +880,7 @@ margin-bottom: 2rem;
 }
 .delete-modal-actions a.delete{
     margin-top: 1em;
-background-color: var(--main-red);
+background-color: hsl(0deg 100% 75%);
 }
 
 .delete-modal-actions button{

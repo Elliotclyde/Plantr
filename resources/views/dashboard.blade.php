@@ -12,10 +12,16 @@
         @foreach($plants as $plant)
         <a href="{{route('showplant', ['plant'=>$plant->id])}}">
         <div class="plant-container">
-            <div class="plant-container-inner">
+            <div class="plant-container-inner {{$plant->state=="old"?"old":""}}">
         <h3><div>
             <span class="plant-title">{{$plant->quantity}} {{ucfirst($plant->type)}}</span>
+            @if($plant->state=="old")
+            <span class="plant-subtitle">This plant might be a bit old</span>
+            @elseif($plant->state=="planned")
+            <span class="plant-subtitle">Planned to plant on:<br/><span class="plant-subtitle-date">{{$plant->planted}}</span></span>
+            @else
             <span class="plant-subtitle">Ready to harvest:<br/> <span class="plant-subtitle-date">{{$plant->estimatedHarvestDate}}</span></span>
+            @endif
         </div></h3>
         @svg($plant->svgPath . $plant->svgNum)
         <div class="progress-bar">
