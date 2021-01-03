@@ -41,6 +41,9 @@ class ViewPlant
         $viewPlant->state = self::getState($viewPlant);
         $viewPlant->formattedState = self::formatState($viewPlant->state);
 
+        $viewPlant->toTransplantDate = self::getCarbonDate($plant->planted)->addDays($plantDetails->seedlingage);
+        $viewPlant->diffToTransplant = self::getNiceDiffInDaysFromToday($viewPlant->toTransplantDate);
+
         return $viewPlant;
     }
 
