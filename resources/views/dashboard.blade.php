@@ -16,9 +16,11 @@
         <h3><div>
             <span class="plant-title">{{$plant->quantity}} {{ucfirst($plant->type)}}</span>
             @if($plant->state=="old")
-            <span class="plant-subtitle">This plant might be a bit old</span>
+            <span class="plant-subtitle">{{$plant->formattedState}}</span>
             @elseif($plant->state=="planned")
             <span class="plant-subtitle">Planned to plant on:<br/><span class="plant-subtitle-date">{{$plant->planted}}</span></span>
+            @elseif($plant->state=="harveststart"||$plant->state=="harvestend" )
+            <span class="plant-subtitle">{{$plant->formattedState}}</span>
             @else
             <span class="plant-subtitle">Ready to harvest:<br/> <span class="plant-subtitle-date">{{$plant->estimatedHarvestDate}}</span></span>
             @endif

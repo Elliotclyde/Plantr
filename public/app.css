@@ -512,7 +512,7 @@ div.plant-display {
     width: min(80vw, 1000px);
     margin: 2em auto 0;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(calc(100px + 7vw), 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(calc(70px + 7vw), 1fr));
     gap: 4rem 1rem;
 }
 
@@ -563,7 +563,7 @@ div.plant-display {
 
 .plant-container::before {
     content: "";
-    padding-top: calc(182% + 11px);
+    padding-top: calc(184% + 11px);
     display: block;
 }
 
@@ -598,7 +598,7 @@ div.plant-display {
 }
 
 .plant-container-inner>h3>div>span {
-    font-size: calc(19px + 0.4vw);
+    font-size: calc(15px + 0.4vw);
     display: block;
     width: 100%;
     text-align: center;
@@ -608,7 +608,7 @@ div.plant-display {
 .plant-container-inner>h3>div>span.plant-subtitle {
     font-weight: 400;
     color: var(--lighter-green-black);
-    font-size: calc(12px + 0.4vw);
+    font-size: calc(10px + 0.4vw);
 }
 
 .plant-container-inner>h3>div>span.plant-subtitle>.plant-subtitle-date {
@@ -1085,6 +1085,62 @@ background-color: hsl(0deg 100% 75%);
         font-size: 1em;
     }
 
+    .profile-cont{
+        margin: 2em 0 0 0;
+        padding:0 1rem;
+    }
+    .settings-actions{
+        margin: 2em 0 0 0;
+        padding:0 1rem;
+    }
+    .profile-cont>div{
+        margin:0 0 1rem 0;
+    }
+
+}
+
+@media only screen and (max-width: 550px) {
+
+    .activity-cards {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .activity-cont {
+        width: 80%;
+        margin-bottom: 1rem;
+    }
+
+    .selling-point {
+        top: 90vw;
+        font-size: 1.75em;
+    }
+
+    .logo {
+        margin-left: 0;
+        background-color: var(--green-grey);
+        border-radius: 50%;
+        width: 1.2em;
+    }
+
+    .logo:hover,
+    .logo:focus {
+        background-color: var(--greener-grey);
+    }
+
+    .logo-text {
+        display: none;
+    }
+
+    .logo svg {
+        margin: auto;
+    }
+
+    .login-form {
+        width: 100%;
+    }
+    
     .plant-details {
         align-items: center;
         flex-direction: column;
@@ -1134,60 +1190,6 @@ background-color: hsl(0deg 100% 75%);
         transform: translateY(8%);
     }
 
-    .profile-cont{
-        margin: 2em 0 0 0;
-        padding:0 1rem;
-    }
-    .settings-actions{
-        margin: 2em 0 0 0;
-        padding:0 1rem;
-    }
-    .profile-cont>div{
-        margin:0 0 1rem 0;
-    }
-
-}
-
-@media only screen and (max-width: 550px) {
-    .activity-cards {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .activity-cont {
-        width: 80%;
-        margin-bottom: 1rem;
-    }
-
-    .selling-point {
-        top: 90vw;
-        font-size: 1.75em;
-    }
-
-    .logo {
-        margin-left: 0;
-        background-color: var(--green-grey);
-        border-radius: 50%;
-        width: 1.2em;
-    }
-
-    .logo:hover,
-    .logo:focus {
-        background-color: var(--greener-grey);
-    }
-
-    .logo-text {
-        display: none;
-    }
-
-    .logo svg {
-        margin: auto;
-    }
-
-    .login-form {
-        width: 100%;
-    }
 }
 .invalid{
     border-width: 2px;

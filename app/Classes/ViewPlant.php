@@ -58,6 +58,11 @@ class ViewPlant
         $average = round(($plantDetails->daystoharveststart + $plantDetails->daystoharvestend) / 2);
         return self::getNiceDiffInDaysFromToday(self::getCarbonDate($viewPlant->planted)->addDays($average));
     }
+    private static function getAverageHarvestDate($viewPlant, $plantDetails)
+    {
+        $average = round(($plantDetails->daystoharveststart + $plantDetails->daystoharvestend) / 2);
+        return self::getCarbonDate($viewPlant->planted)->addDays($average);
+    }
     private static function formatPropogationtype($propogationType)
     {
         $formatMap = [
@@ -88,8 +93,11 @@ class ViewPlant
         if(!$beforePlant && Carbon::now('pacific/auckland')->midDay()->isBefore(self::getCarbonDate($viewPlant->harvestStart))){
             return "growing";
         }
-        if(Carbon::now('pacific/auckland')->midDay()->isAfter(self::getCarbonDate($viewPlant->harvestStart))){
-            return "harvest";
+        if(Carbon::now('pacific/auckland')->midDay()->isAfter(self::getCarbonDate($viewPlant->harvestStart)) && Carbon::now('pacific/auckland')->midDay()->isBefore(self::getAverageHarvestDate($viewPlant,$viewPlant->details))){
+            return "harveststart";
+        }
+        if(Carbon::now('pacific/auckland')->midDay()->isAfter(self::getAverageHarvestDate($viewPlant,$viewPlant->details)) && Carbon::now('pacific/auckland')->midDay()->isBefore(self::getCarbonDate($viewPlant->planted)->addDays($viewPlant->details->daystoharvestend))){
+            return "harvestend";
         }
     }
     private static function formatState($state)
@@ -98,7 +106,7 @@ class ViewPlant
             'old' => 'This plant might be getting a bit old',
             'planned' => 'You\'ve planned to plant this in the future',
             'growing' => 'This plant is currently growing',
-            'harveststart' => 'It\'s time to start checking if this plant is ready to harvest!',
+            'harveststart' => 'Check if this one\'s ready to harvest!',
             'harvestend' => 'This plant should be ready to harvest!'
         ];
         return $formatMap[$state];
