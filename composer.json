@@ -23,6 +23,8 @@
         "nunomaduro/collision": "^5.0",
         "phpunit/phpunit": "^9.3"
     },
+    "php-config": [
+        "short_open_tag=on"],
     "config": {
         "optimize-autoloader": true,
         "preferred-install": "dist",
