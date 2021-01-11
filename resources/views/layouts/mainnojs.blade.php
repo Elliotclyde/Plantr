@@ -6,7 +6,9 @@
         <meta name="description" content="Plantr: an app for growing and harvesting vegetables in New Zealand.">
         <meta property="og:title" content="Plantr - @yield('title')">
         <meta property="og:description" content="Plantr: an app for growing and harvesting vegetables in New Zealand.">
-        <meta property="og:image" content="images/plantrpreview.jpg">
+        <meta property="og:image" content="{{env('APP_URL')}}/images/plantrpreview.jpg">
+        <meta property="og:image:width" content="1400">
+        <meta property="og:image:height" content="900">
         <meta property="og:url" content="{{env('APP_URL')}}">
         <meta name="twitter:card" content="summary_large_image">
         <title>Plantr - @yield('title')</title>
