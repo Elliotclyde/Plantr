@@ -40,7 +40,7 @@
     <a href="#" @click="transplantopen = true"><x-svg-transplant-button class="delete-button"/><span class="action-caption"> Transplant</span></a>
    
     <div class="modal-wrapper" x-show="transplantopen; $nextTick(()=>document.getElementById('transplant-date').focus());">
-    <div @click.away="transplantopen=false">
+    <div x-show.transition="transplantopen" @click.away="transplantopen=false">
         
         <form x-data="form()" x-init="init()"  @focusout="change" @input="change" @submit="submit" action="{{route('transplant',['plant' => $plant])}}" method="POST" class="transplant-modal">    
         <h2>Transplant {{ucfirst($plant->type)}}</h2>

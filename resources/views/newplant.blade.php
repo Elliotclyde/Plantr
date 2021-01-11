@@ -8,7 +8,7 @@
 <form class="new-plant-form" action="{{ route('newplant') }}" method="post" x-data="{planted:'{{(new \Carbon\Carbon())->tz('Pacific/Auckland')->format('Y-m-d')}}',selected:'{{ $planttypes[0]->type }}'}">
     @csrf
     <p class="label">Choose Plant</p>
-    <div class="plant-type-container">
+    <div class="plant-type-container animwrapper">
         <div class="plant-type-display-container" >
 
             <!-- Input (on left side on wider screens) -->
@@ -44,9 +44,10 @@
             </div>
         </div>
     </div>
-
+    <div class="animwrapper planted-wrapper">
     <label for="planted">Select date of planting</label>
     <input type="date" name="planted" id="planted" x-model.date="planted">
+    
     <p class="date-message" x-bind:class="{ 'bad-time': !checkSeason(selected,planted)}"  id="date-message" data-planting-times='{
         @foreach($planttypes as $index => $option)
             "{{$option->type}}":{ "seasonstart":{{$option->seasonstart-1}},
@@ -55,9 +56,12 @@
     }' x-text="checkSeason(selected,planted)?
     'This is a good time to plant '+selected:
     'This is not such a good time to plant '+selected "></p>
+    </div>
+    <div class="animwrapper quantity-wrapper">
     <label for="quantity">Select how many plants</label>
     <input  type="number" name="quantity" id="quantity" step="1" value="1" min="1" max="100">
-
+    </div>
+    <div class="animwrapper prop-type-wrapper">
     <p class="label">Choose planting method</p>
     <fieldset class="prop-type-input-container">
         <input class="prop-type-radio" id="directsow" type="radio" name="propogation_type" value="directsow" checked>
@@ -77,6 +81,7 @@
                 <p class="prop-type">Sow in tray</p>
         </label>
     </fieldset>
+    </div>
     <input class="round-btn" type="submit">
 <a class="round-btn cancel-btn" href="{{route('dashboard')}}">Cancel</a>
 </form>

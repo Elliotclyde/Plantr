@@ -9,19 +9,19 @@
 <div x-data="{showing:'{!! session('settingsOpen') !!}', logoutopen:false , justUpdated:'{!!session('justUpdated') !!}'}">
 
 <div class="settings-actions">
-    <a @click="showing!=='profilesettings'?showing='profilesettings':showing=''" x-bind:class="{'current':showing=='profilesettings'}" href="#"><x-svg-profile-button class="delete-button"/><span class="settings-caption">Profile Settings</span></a>
-    <a @click="showing!=='plantsettings'?showing='plantsettings':showing=''" x-bind:class="{'current':showing=='plantsettings'}" href="#">@svg('single-plants.cauli.cauli-2',["class"=>"delete-button"])<span class="settings-caption">Planting Settings</span></a>
-    <a href="{{route('dashboard')}}"><x-svg-back-home-button class="delete-button"/><span class="settings-caption">Dashboard</span></a>
+    <a class="animwrapper action1" @click="showing!=='profilesettings'?showing='profilesettings':showing=''" x-bind:class="{'current':showing=='profilesettings'}" href="#"><x-svg-profile-button class="delete-button"/><span class="settings-caption">Profile Settings</span></a>
+    <a class="animwrapper action2" @click="showing!=='plantsettings'?showing='plantsettings':showing=''" x-bind:class="{'current':showing=='plantsettings'}" href="#">@svg('single-plants.cauli.cauli-2',["class"=>"delete-button"])<span class="settings-caption">Planting Settings</span></a>
+    <a class="animwrapper action3" href="{{route('dashboard')}}"><x-svg-back-home-button class="delete-button"/><span class="settings-caption">Dashboard</span></a>
 </div>
 
 
 
-<div class="profile-cont" x-show="showing=='profilesettings'">
+<div class="profile-cont" x-show.transition="showing=='profilesettings'">
     <h2>Profile Settings</h2>
         <h3>Not {{$user->username}}?</h3>
         <button class="round-btn logout-btn"  href="#" @click="logoutopen = true">Logout</button>
         <div class="modal-wrapper" style="display: none;" x-show="logoutopen">
-            <div class="delete-modal" style="display: none;" x-show="logoutopen;$nextTick(()=>document.getElementById('logout-button').focus());" @click.away="logoutopen=false">
+            <div class="delete-modal" style="display: none;" x-show.transition="logoutopen;$nextTick(()=>document.getElementById('logout-button').focus());" @click.away="logoutopen=false">
                 <form id="logoutform" action="{{ route('logout') }}" method="POST" style="display: none;" method="POST" @click.away="logoutopen=false"> @csrf</form>     
                 <h2>Logout</h2>
                 <p>Are you sure?</p>
@@ -64,7 +64,7 @@
         <input type="submit">
       </form>
 </div>
-<div class="profile-cont" x-show="showing=='plantsettings'">
+<div class="profile-cont" x-show.transition="showing=='plantsettings'">
     <h2>Planting Settings</h2>
     <form class="settingsform" x-data="{wateringtoggled:{{$user->rain_toggle ?'true':'false'}}}" action="/planting-change" method="POST">
         @csrf
@@ -98,7 +98,7 @@
     
 </div>
 <div class="modal-wrapper" style="display: none;"  x-show="justUpdated; $nextTick(()=>document.getElementById('close-modal-button').focus());">
-    <div class="delete-modal" style="display: none;" x-show="justUpdated" @click.away="justUpdated=false">
+    <div class="delete-modal" style="display: none;" x-show.transition="justUpdated" @click.away="justUpdated=false">
        <h3>Details successfully updated</h3>
         <button  id="close-modal-button" class="round-btn cancel-btn" @click="justUpdated = false" wire>Okay</button>
     </div>

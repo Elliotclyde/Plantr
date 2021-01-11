@@ -173,10 +173,12 @@ h1.hidden-heading {
 .tagline {
     font-size: 4em;
     font-family: 'aadam', 'serif';
+    animation-name: fadeIn1;
 }
 
 .sub-tagline {
     font-size: 1.7em;
+    animation-name: fadeIn2;
 }
 
 .sub-tagline::before {
@@ -223,6 +225,7 @@ form.settingsform [type=submit]:hover {
     background-color: hsl(100deg 68% 68%);
     margin-left: 1vw;
     font-size: 1.5em;
+    animation-name: fadeIn3;
 }
 
 .call-to-action:hover,
@@ -253,8 +256,11 @@ form.settingsform [type=submit]:active {
 .activity-cont {
     width: 31vw;
     position: relative;
-    ;
+    animation-duration: 2s;
+    animation-timing-function:linear;
+    animation-direction: forwards;
     box-shadow: 0px 3px 5px var(--dark-green);
+
 }
 
 .selling-point {
@@ -345,20 +351,20 @@ form>div{
 
 form.new-plant-form {
     width: min(80vw, 1000px);
-    max-width: 600px;
-    margin: 2em auto 0;
+    max-width: 700px;
+    margin: 1em auto 0;
 }
 
-.new-plant-form>p,
-.new-plant-form>label {
+.new-plant-form p,
+.new-plant-form label {
     font-weight: bold;
 }
 
-.new-plant-form>p.date-message{
+.new-plant-form p.date-message{
     margin-bottom: 2em;
     font-weight: normal;
 }
-.new-plant-form>p.date-message.bad-time{
+.new-plant-form p.date-message.bad-time{
     color:var(--darker-red)
 }
 
@@ -371,6 +377,24 @@ form.new-plant-form {
 .plant-type-container {
     width: 100%;
     margin-bottom: 2em;
+    animation-name: fadeIn1;
+}
+.animwrapper{
+    animation-duration: 2s;
+    animation-timing-function:linear;
+    animation-direction: forwards;
+}
+div.planted-wrapper{
+    animation-name: fadeIn2;
+}
+div.quantity-wrapper{
+    animation-name: fadeIn3;
+}
+div.quantity-wrapper{
+    animation-name: fadeIn4;
+}
+div.prop-type-wrapper{
+    animation-name: fadeIn5;
 }
 
 div.plant-type-display-container {
@@ -402,9 +426,15 @@ div.plant-display {
 .plant-display-item {
     width: 100%;
     flex-grow: 1;
+    width: 100%;
+    height: 20vw;
+    max-height: 180px;
+    flex-grow: 1;
 }
 
 .growing-tip {
+    font-weight: normal !important;
+    font-size:0.9em;
     margin: 0 1em;
     flex-grow: 0;
 }
@@ -420,9 +450,9 @@ div.plant-display {
     cursor: pointer;
     width: 15vw;
     margin: 0.5vw;
-    max-width: 90px;
+    max-width: 105px;
     height: 15vw;
-    max-height: 90px;
+    max-height: 105px;
     position: relative;
     background-color: var(--green-grey);
 }
@@ -449,7 +479,8 @@ div.plant-display {
 
 .prop-type-input-container {
     display: flex;
-    margin-bottom: 2em;
+    margin: 0 auto 2em auto;
+    width: fit-content;
 }
 
 .prop-type-radio {
@@ -517,6 +548,134 @@ div.plant-display {
 
 .plants>a {
     box-shadow: 1px 1px 5px var(--green-grey);
+    animation-duration: 0.5s;
+    animation-timing-function:ease;
+    animation-direction: forwards;
+}
+
+@keyframes fadeIn1 {
+    0% { opacity: 0; 
+          transform:translateX(-10px);
+      }
+      10% { opacity: 1; 
+        transform:translateX(0);
+    }
+      100% { opacity: 1; 
+          transform:translateX(0)}
+}
+@keyframes fadeIn2 {
+    0% { opacity: 0; 
+          transform:translateX(-10px);
+      }
+      10% { opacity: 0; 
+        transform:translateX(-10px);
+    }
+      20% { opacity: 1; 
+        transform:translateX(0);
+    }
+      100% { opacity: 1; 
+          transform:translateX(0)}
+}
+@keyframes fadeIn3 {
+    0% { opacity: 0; 
+          transform:translateX(-10px);
+      }
+      20% { opacity: 0; 
+        transform:translateX(-10px);
+    }
+      30% { opacity: 1; 
+        transform:translateX(0);
+    }
+      100% { opacity: 1; 
+          transform:translateX(0)}
+}
+@keyframes fadeIn4 {
+    0% { opacity: 0; 
+          transform:translateX(-10px);
+      }
+      30% { opacity: 0; 
+        transform:translateX(-10px);
+    }
+      40% { opacity: 1; 
+        transform:translateX(0);
+    }
+      100% { opacity: 1; 
+          transform:translateX(0)}
+}
+@keyframes fadeIn5 {
+    0% { opacity: 0; 
+          transform:translateX(-10px);
+      }
+      40% { opacity: 0; 
+        transform:translateX(-10px);
+    }
+      50% { opacity: 1; 
+        transform:translateX(0);
+    }
+      100% { opacity: 1; 
+          transform:translateX(0)}
+}
+@keyframes fadeIn6 {
+    0% { opacity: 0; 
+          transform:translateX(-10px);
+      }
+      50% { opacity: 0; 
+        transform:translateX(-10px);
+    }
+      60% { opacity: 1; 
+        transform:translateX(0);
+    }
+      100% { opacity: 1; 
+          transform:translateX(0)}
+}
+@keyframes fadeIn7 {
+    0% { opacity: 0; 
+          transform:translateX(-10px);
+      }
+      60% { opacity: 0; 
+        transform:translateX(-10px);
+    }
+      70% { opacity: 1; 
+        transform:translateX(0);
+    }
+      100% { opacity: 1; 
+          transform:translateX(0)}
+}
+@keyframes fadeIn8 {
+    0% { opacity: 0; 
+          transform:translateX(-10px);
+      }
+      70% { opacity: 0; 
+        transform:translateX(-10px);
+    }
+      80% { opacity: 1; 
+        transform:translateX(0);
+    }
+      100% { opacity: 1; 
+          transform:translateX(0)}
+}
+@keyframes fadeIn9 {
+    0% { opacity: 0; 
+          transform:translateX(-10px);
+      }
+      80% { opacity: 0; 
+        transform:translateX(-10px);
+    }
+      90% { opacity: 1; 
+        transform:translateX(0);
+    }
+      100% { opacity: 1; 
+          transform:translateX(0)}
+}
+@keyframes fadeIn10 {
+    0% { opacity: 0; 
+          transform:translateX(-10px);
+      }
+      90% { opacity: 0; 
+        transform:translateX(-10px);
+    }
+      100% { opacity: 1; 
+          transform:translateX(0)}
 }
 
 .plants>a:focus {
@@ -656,6 +815,7 @@ div.plant-display {
 
 .new-plant-plus{
     color: var(--dark-grey);
+    transform: translateY(-7vw);
     font-size: calc(65px + 9vw);
     height: 0;
     width: 100%;
@@ -803,6 +963,16 @@ font-weight: 400;
     flex-direction: column;
     padding-top: 1rem;
     width:30%;
+}
+
+.action1{
+    animation-name: fadeIn1;
+}
+.action2{
+    animation-name: fadeIn2;
+}
+.action3{
+    animation-name: fadeIn3;
 }
 .settings-actions>a.current {
    background-color: var(--greenish-grey);
