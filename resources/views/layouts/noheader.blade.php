@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="Plantr: an app for growing and harvesting vegetables in New Zealand.">
         <title>Plantr - @yield('title')</title>
-        <link rel="preload" href="/fonts/Aadam.otf" as="font" crossorigin="anonymous">
+        <link rel="preload" href="fonts/Aadam.otf" as="font" crossorigin="anonymous">
         <link rel="stylesheet" href="{{asset('app.css')}}">
         <link rel="shortcut icon" href="/favicon.svg" type="image/x-icon">
         <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.3/dist/alpine.min.js" defer></script>

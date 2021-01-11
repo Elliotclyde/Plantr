@@ -6,7 +6,7 @@
         <meta name="description" content="Plantr: an app for growing and harvesting vegetables in New Zealand.">
         <title>Plantr - @yield('title')</title>
         <link rel="shortcut icon" href="/favicon.svg" type="image/x-icon">
-        <link rel="preload" href="/fonts/Aadam.otf" as="font" crossorigin="anonymous">
+        <link rel="preload" href="fonts/Aadam.otf" as="font" crossorigin="anonymous">
         <link rel="stylesheet" href="{{asset('app.css')}}">
     </head>
     <body>
