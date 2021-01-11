@@ -1,13 +1,18 @@
 <?php
 
 use Illuminate\Support\Str;
-
+if(getenv("APP_ENV")=="production"){
 $url = parse_url(getenv("DATABASE_URL"));
-
 $host = $url["host"];
 $username = $url["user"];
 $password = $url["pass"];
-$database = substr($url["path"], 1);
+$database = substr($url["path"], 1);}
+else {
+$url = "";
+$host = "";
+$username  = "";
+$password   = "";
+$database = "";}
 
 return [
 

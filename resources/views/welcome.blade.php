@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('layouts.mainnojs')
 
 @section('title','Home')
 
@@ -10,12 +10,8 @@
         <span class="tagline"> Grow<br>Nurture<br>Thrive</span>
         <span class="sub-tagline"> Get into the Garden?</span>
         <a class="call-to-action round-btn" href="{{route('register')}}">Register</a>
-            </div>
-        <picture>
-            <source srcset="{{asset('images/plantr-hero-2-768-768-optim.jpg')}}" media="(max-width: 800px)">
-            <img srcset="{{asset('images/plantr-hero-2-1600-1000-optim.jpg')}}" alt="Picture of onions being grown">
-          </picture>
         </div>
+    </div>
         
     <div class="activity-cards">
         <div class="activity-cont"><p class="selling-point">Keep a record of your growing</p><x-svg-record-of-growing/></div>

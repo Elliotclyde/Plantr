@@ -8,13 +8,10 @@
         <link rel="shortcut icon" href="/favicon.svg" type="image/x-icon">
         <link rel="preload" href="/fonts/Aadam.otf" as="font" crossorigin="anonymous">
         <link rel="stylesheet" href="{{asset('app.css')}}">
-        <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.3/dist/alpine.min.js" defer></script>
-        <script src="https://cdn.jsdelivr.net/gh/mattkingshott/iodine@3/dist/iodine.min.js" ></script>
-
     </head>
     <body>
         <header>
-            <a class="logo" aria-label="Plantr" href="{{route('welcome')}}"><span class="logo-text">Plantr</span><x-svg-plantrlogo alt="Plantr"/></a>
+            <a class="logo" aria-label="Plantr" href="{{route('welcome')}}"><span class="logo-text">Plantr</span><x-svg-plantrlogo /></a>
             <ul>
                 <li><a href="{{route('resources')}}">Resources</a></li>
                 <li><a href="{{route('about')}}">About</a></li>
@@ -38,6 +35,5 @@
             </div>
         </div>@endif
     <footer>Copyright Hugh Haworth {{now()->year}} </footer>
-    <script src="/scripts/scripts.js " ></script>
     </body>
 </html>
