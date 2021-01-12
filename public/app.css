@@ -1209,7 +1209,35 @@ background-color: hsl(0deg 100% 75%);
       input:disabled{
           background-color: var(--grey);
       }
-        
+  
+.content-section{
+    width: min(70vw, 800px);
+    margin: 2em auto 0;
+}
+.content-section>h1 {
+margin-bottom: 1rem;
+}
+.content-section>h2 {
+    margin-bottom: 0.5rem;
+    }
+.content-section a{
+background-color: var(--green-grey);
+}
+.content-section a:hover,.content-section a:focus{
+background-color: var(--greener-grey);
+}
+.plant-container-inner>svg.badge{
+border: 0.1em solid hsl(0, 99%, 25%);
+height: 1.7em;
+background-color: var(--focus-red);
+width: 1.7em;
+border-radius: 50%;
+right: -0.75em;
+top: -0.75em;
+position: absolute;
+box-shadow: 0px 3px 3px hsla(0, 99%, 25%, 0.5);
+animation: bounce 2s ease infinite;
+}      
 
 @keyframes grow {
     0% {
@@ -1245,6 +1273,7 @@ background-color: hsl(0deg 100% 75%);
 
 @media only screen and (max-width: 800px) {
 
+ 
     .logo {
         margin-left: 1rem;
         padding: 0;
@@ -1278,6 +1307,11 @@ background-color: hsl(0deg 100% 75%);
 }
 
 @media only screen and (max-width: 550px) {
+    .content-section{
+        width: 90%;
+        margin:  0 auto;
+        font-size: 1rem;
+    }
 
     .activity-cards {
         display: flex;
@@ -1379,31 +1413,6 @@ background-color: hsl(0deg 100% 75%);
 }
 .invalid:focus{
     background-color: var(--grey);
-}
-.content-section{
-        width: min(70vw, 800px);
-        margin: 2em auto 0;
-}
-.content-section>h1 {
-    margin-bottom: 1rem;
-}
-.content-section a{
-    background-color: var(--green-grey);
-}
-.content-section a:hover,.content-section a:focus{
-    background-color: var(--greener-grey);
-}
-.plant-container-inner>svg.badge{
-    border: 0.1em solid hsl(0, 99%, 25%);
-    height: 1.7em;
-    background-color: var(--focus-red);
-    width: 1.7em;
-    border-radius: 50%;
-    right: -0.75em;
-    top: -0.75em;
-    position: absolute;
-    box-shadow: 0px 3px 3px hsla(0, 99%, 25%, 0.5);
-    animation: bounce 2s ease infinite;
 }
 @keyframes bounce{
     0%{transform:translateY(0px) scale(1)}
