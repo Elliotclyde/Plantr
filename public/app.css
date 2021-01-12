@@ -697,12 +697,16 @@ div.plant-display {
     width: min(80vw, 1000px);
     margin: 2em auto 0;
 }
+.content-section>h1{
+    font-family: aadam;
+    margin-bottom: 0;
+}
 .plants-container>h2 {
     font-family: aadam;
     font-size:1.75em;
     margin-bottom: 0;
 }
-.plants-container>h2::after{
+.plants-container>h2::after,.content-section>h1:after{
     display: block;
     content:'';
     background-color: var(--green-black);
@@ -1377,11 +1381,17 @@ background-color: hsl(0deg 100% 75%);
     background-color: var(--grey);
 }
 .content-section{
-        width: min(80vw, 1000px);
+        width: min(70vw, 800px);
         margin: 2em auto 0;
 }
 .content-section>h1 {
     margin-bottom: 1rem;
+}
+.content-section a{
+    background-color: var(--green-grey);
+}
+.content-section a:hover,.content-section a:focus{
+    background-color: var(--greener-grey);
 }
 .plant-container-inner>svg.badge{
     border: 0.1em solid hsl(0, 99%, 25%);
