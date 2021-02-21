@@ -1352,7 +1352,7 @@ animation: bounce 2s ease infinite;
     .profile-cont>div{
         margin:0 0 1rem 0;
     }
-    .a.content-dashboard-link{
+    a.content-dashboard-link{
         padding:1em 0em;
     }
     .content-dashboard-link-caption{
