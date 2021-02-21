@@ -1213,11 +1213,15 @@ background-color: hsl(0deg 100% 75%);
 .content-section{
     width: min(70vw, 800px);
     margin: 2em auto 0;
+    line-height: 2em;
 }
 .content-section>h1 {
+    margin-top: 1em;
 margin-bottom: 1rem;
+position: relative;
 }
 .content-section>h2 {
+    margin-top: 5rem;
     margin-bottom: 0.5rem;
     }
 .content-section a{
@@ -1226,6 +1230,50 @@ background-color: var(--green-grey);
 .content-section a:hover,.content-section a:focus{
 background-color: var(--greener-grey);
 }
+
+a.content-dashboard-link {
+    transform: translateY(-1.3em);
+    position: absolute;
+    font-size: 0.5em;
+    right: 0;
+    top: 0;
+    font-weight: normal;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: row;
+    padding: 1em 5em;
+    max-width: 200px;
+    background-color: transparent;
+}
+
+a.content-dashboard-link:focus {
+    outline: none;
+}
+a.content-dashboard-link:hover,
+a.content-dashboard-link:focus{
+    background-color: var(--green-grey);
+}
+
+a.content-dashboard-link:hover>svg,
+a.content-dashboard-link:focus>svg {
+    background-color: var(--greener-grey);
+    box-shadow: 1px 1px 5px var(--lighter-green-black);
+}
+a.content-dashboard-link>svg {
+    flex-shrink: 0;
+    width: 3em;
+    height: 3em;
+    padding: 0.4em;
+    border-radius: 2em;
+}
+.content-dashboard-link-caption{
+    text-align: center;
+    margin-top: 0.5em;
+    padding-left:1em;
+}
+
 .plant-container-inner>svg.badge{
 border: 0.1em solid hsl(0, 99%, 25%);
 height: 1.7em;

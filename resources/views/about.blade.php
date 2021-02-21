@@ -3,8 +3,12 @@
 @section('title','About')
 
 @section('content')
+
 <div class="content-section">
-    <h1>About Plantr</h1>
+    <h1>About Plantr @if(Auth::check())
+        <a class="content-dashboard-link" href="{{route('dashboard')}}"><x-svg-back-home-button class="delete-button"/><span class="content-dashboard-link-caption">Dashboard</span></a>
+    
+    @endif</h1>
     <h2>The problem</h2>
     <p>When I garden I find it difficult to remember important information. </p>  
     <p>When did I plant that spinach? Did I water those cauliflower yesterday or the day before? 
