@@ -1262,6 +1262,7 @@ a.content-dashboard-link:focus>svg {
     box-shadow: 1px 1px 5px var(--lighter-green-black);
 }
 a.content-dashboard-link>svg {
+    background-color: var(--greenish-grey);
     flex-shrink: 0;
     width: 3em;
     height: 3em;
@@ -1351,7 +1352,12 @@ animation: bounce 2s ease infinite;
     .profile-cont>div{
         margin:0 0 1rem 0;
     }
-
+    .a.content-dashboard-link{
+        padding:1em 0em;
+    }
+    .content-dashboard-link-caption{
+        display:none;
+    }
 }
 
 @media only screen and (max-width: 550px) {

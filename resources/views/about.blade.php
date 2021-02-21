@@ -29,7 +29,7 @@
     <h2>The author</h2>
     <p>Gidday.🖐</p> 
     <p>My name's Hugh. If you want to check out more of my projects you can jump on over to my
-    <a href="http://elliotclyde.nz">personal site</a>. I hope you enjoy Plantr and hope it gives you a helping hand in the garden.</p>
+    <a href="http://www.elliotclyde.nz">personal site</a>. I hope you enjoy Plantr and hope it gives you a helping hand in the garden.</p>
     <p>-Hugh</p> 
 </div>
 @endsection
