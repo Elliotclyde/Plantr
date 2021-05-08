@@ -1,0 +1,55 @@
+button {
+    font-size: inherit;
+}
+
+div.container .round-btn {
+    border-radius: 30em;
+    text-align: center;
+    display: inline-flex;
+    justify-content: center;
+    background-color: var(--green-grey);
+    height: 2em;
+    width: 24vw;
+    align-items: center;
+    appearance: none;
+    border: none;
+    cursor: pointer;
+    &:hover,
+    &:focus {
+        background-color: rgb(96, 194, 47);
+    }
+    &:active {
+        background-color: rgb(50, 150, 0);
+    }
+
+    &.cancel-btn {
+        background-color: var(--grey);
+    }
+    &.cancel-btn:hover,
+    &.cancel-btn:focus {
+        background-color: var(--green-grey);
+    }
+    &.cancel-btn:active {
+        background-color: rgb(50, 150, 0);
+    }
+    &.call-to-action {
+        color: hsl(120deg 40% 16%);
+        background-color: hsl(100deg 68% 68%);
+        margin-left: 1vw;
+        font-size: 1.5em;
+        animation-name: fadeIn3;
+    }
+    &.call-to-action:hover,
+    &.call-to-action:focus {
+        background-color: rgb(96, 194, 47);
+    }
+    &.delete {
+        background-color: hsl(0deg 100% 75%);
+    }
+    &.delete:focus,
+    &.delete:hover {
+        outline: none;
+        background-color: var(--focus-red);
+        box-shadow: 1px 1px 5px var(--darker-red);
+    }
+}

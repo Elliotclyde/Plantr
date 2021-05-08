@@ -8,8 +8,8 @@
 <form class="new-plant-form" action="{{ route('newplant') }}" method="post" x-data="{planted:'{{(new \Carbon\Carbon())->tz('Pacific/Auckland')->format('Y-m-d')}}',selected:'{{ $planttypes[0]->type }}'}">
     @csrf
     <p class="label">Choose Plant</p>
-    <div class="plant-type-container animwrapper">
-        <div class="plant-type-display-container" >
+    <div class="plant-type-outer-container animwrapper">
+        <div class="plant-type-inner-container" >
 
             <!-- Input (on left side on wider screens) -->
             <fieldset x-model="selected" class="plant-type-input-container">
@@ -46,7 +46,7 @@
     </div>
     <div class="animwrapper planted-wrapper">
     <label for="planted">Select date of planting</label>
-    <input type="date" name="planted" id="planted" x-model.date="planted">
+    <input type="date" name="planted" class="date-planted-input" x-model.date="planted">
     
     <p class="date-message" x-bind:class="{ 'bad-time': !checkSeason(selected,planted)}"  id="date-message" data-planting-times='{
         @foreach($planttypes as $index => $option)

@@ -1,0 +1,54 @@
+fieldset.prop-type-input-container {
+    display: flex;
+    margin: 0 auto 2em auto;
+    width: fit-content;
+    & .prop-type-radio {
+        opacity: 0;
+        position: absolute;
+        width: 0;
+        height: 0;
+        & + label {
+            cursor: pointer;
+            width: 20vw;
+            margin: 0.5vw;
+            max-width: 200px;
+            height: 20vw;
+            max-height: 200px;
+            position: relative;
+            background-color: var(--green-white);
+            & svg {
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: inherit;
+                width: inherit;
+                max-width: inherit;
+                max-height: inherit;
+            }
+            & .prop-type {
+                font-weight: 400;
+                position: absolute;
+                font-size: 0.8em;
+                left: 50%;
+                top: 0.1em;
+                transform: translateX(-50%);
+                color: var(--green-white);
+            }
+            & .climate-label {
+                position: absolute;
+                text-align: center;
+                top: 1em;
+                width: 100%;
+                color: var(--green-white);
+            }
+        }
+        &:checked + label {
+            outline: var(--dark-green) auto 5px;
+            background-color: var(--greener-grey);
+        }
+        &:focus + label {
+            background-color: var(--even-greener-grey);
+            box-shadow: var(--even-lighter-green-black) 0px 0px 1em;
+        }
+    }
+}

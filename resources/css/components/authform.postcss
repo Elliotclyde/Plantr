@@ -1,0 +1,77 @@
+.authform {
+    font-size: 1.25em;
+    margin: 120px auto 0;
+    width: max(40vw, 200px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    @media only screen and (max-width: 550px) {
+        width: 100%;
+    }
+
+    & label,
+    & input,
+    & .label {
+        display: block;
+        width: 100%;
+    }
+    & input {
+        height: 2em;
+        font-size: 1em;
+        background-color: var(--green-grey);
+        border: none;
+        margin-bottom: 1em;
+    }
+    & input:focus {
+        outline: none;
+        background-color: var(--greener-grey);
+    }
+    & .error-message {
+        color: var(--darker-red);
+        margin-bottom: 1em;
+        font-size: 0.75em;
+    }
+    & input[type="submit"] {
+        font-weight: bold;
+    }
+    & .logo-no-header {
+        margin-bottom: 0.5em;
+    }
+    & > div {
+        width: 100%;
+    }
+    & .logo-no-header {
+        height: 100%;
+        color: var(--main-green);
+        font-weight: bold;
+        display: flex;
+        font-family: "aadam", "serif";
+        align-items: center;
+        font-size: 1.8em;
+        width: fit-content;
+        & svg {
+            margin: -1.3vw;
+            height: 1em;
+        }
+    }
+    & .invalid {
+        border-width: 2px;
+        border-style: solid;
+        border-color: var(--main-red);
+        color: var(--darkest-red);
+        background-color: var(--lightest-red);
+        margin-bottom: 0;
+    }
+    & .invalid:focus {
+        background-color: var(--grey);
+    }
+}
+
+.home-link {
+    margin-top: 6em;
+    text-align: center;
+    & a {
+        font-size: 1.2em;
+    }
+}

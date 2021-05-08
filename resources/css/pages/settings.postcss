@@ -1,0 +1,225 @@
+.settings-actions {
+    padding: 0 6rem;
+    margin: 1rem 2rem 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    @media only screen and (max-width: 800px) {
+        margin: 2em 0 0 0;
+        padding: 0 1rem;
+    }
+    & a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1em;
+        flex-direction: column;
+        padding-top: 1rem;
+        width: 30%;
+        & svg {
+            background-color: var(--green-grey);
+            padding: 0.4em;
+            width: 4em;
+            height: 4em;
+            border-radius: 2em;
+        }
+        & .settings-caption {
+            text-align: center;
+            margin-top: 0.5em;
+        }
+    }
+    & a.current {
+        background-color: var(--greenish-grey);
+    }
+    & a:focus {
+        background-color: var(--even-greener-grey);
+        outline: none;
+        & svg {
+            background-color: var(--greener-grey);
+            box-shadow: 1px 1px 5px var(--lighter-green-black);
+        }
+    }
+    & a:hover {
+        background-color: var(--even-greener-grey);
+        & svg {
+            background-color: var(--greener-grey);
+            box-shadow: 1px 1px 5px var(--lighter-green-black);
+        }
+    }
+}
+
+.action1 {
+    animation-name: fadeIn1;
+}
+.action2 {
+    animation-name: fadeIn2;
+}
+.action3 {
+    animation-name: fadeIn3;
+}
+
+.settings-form-wrapper {
+    margin: 2rem 2rem 0 2rem;
+    padding: 0 6rem;
+    & h2 {
+        font-size: 2em;
+        font-family: aadam;
+        margin-bottom: 0.5em;
+    }
+    & > h2::after {
+        display: block;
+        content: "";
+        background-color: var(--green-black);
+        margin-top: 0.75rem;
+        height: 0.25rem;
+        width: 2em;
+    }
+    & h3 {
+        margin-bottom: 0.5em;
+    }
+    & > div {
+        margin: 0 0 2rem 0;
+        display: flex;
+        flex-direction: column;
+    }
+    & .logout-btn {
+        margin-bottom: 2rem;
+    }
+
+    @media only screen and (max-width: 800px) {
+        margin: 2em 0 0 0;
+        padding: 0 1rem;
+        & > div {
+            margin: 0 0 1rem 0;
+        }
+    }
+}
+
+.logoutwrapper {
+    font-size: 1.25em;
+}
+
+.settingsform {
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+    font-size: 1em;
+    margin: 0;
+    width: inherit;
+    display: block;
+    font-size: 1.25em;
+
+    & input[type="number"],
+    & input[type="password"],
+    & input[type="text"],
+    & input[type="email"],
+    & .label:not(.prop-type-label) {
+        display: block;
+        width: 100%;
+    }
+    & input {
+        height: 2em;
+        font-size: 1em;
+        background-color: var(--green-grey);
+        border: none;
+        margin-bottom: 1em;
+    }
+
+    & input:focus {
+        outline: none;
+        background-color: var(--greener-grey);
+    }
+    & .error-message {
+        color: var(--darker-red);
+        margin-bottom: 1em;
+        font-size: 0.75em;
+    }
+    & input[type="submit"] {
+        font-weight: bold;
+    }
+    & .invalid {
+        border-width: 2px;
+        border-style: solid;
+        border-color: var(--main-red);
+        color: var(--darkest-red);
+        background-color: var(--lightest-red);
+        margin-bottom: 0;
+    }
+    & .invalid:focus {
+        background-color: var(--grey);
+    }
+    & .roundbtn {
+        &:hover,
+        &:focus {
+            background-color: rgb(96, 194, 47);
+        }
+        &:active {
+            background-color: rgb(50, 150, 0);
+        }
+    }
+    & .rain-toggle {
+        display: inline-block;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        width: 4em;
+        height: 2em;
+        background-color: var(--grey);
+        position: relative;
+        border-radius: 30px;
+        box-shadow: none;
+        margin-bottom: 0;
+
+        &:after {
+            content: "";
+            display: inline-block;
+            position: absolute;
+            width: 1.7em;
+            height: 1.7em;
+            background-color: var(--dark-grey);
+            top: 0.13em;
+            left: 0.3em;
+            border-radius: 50%;
+            transition: left 0.3s;
+        }
+
+        &:focus {
+            background-color: var(--grey);
+            &:after {
+                background-color: var(--dark-green-grey);
+            }
+        }
+
+        &:checked {
+            background-color: var(--green-grey);
+            &:after {
+                left: 2em;
+                background-color: var(--main-green);
+            }
+            &:focus:after {
+                background-color: green;
+            }
+        }
+    }
+}
+
+.rain-frequency {
+    display: inline;
+    width: fit-content;
+}
+
+input:disabled {
+    background-color: var(--grey);
+}
+
+.modal-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--transparent-green-black);
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+}

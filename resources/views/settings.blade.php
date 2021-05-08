@@ -16,17 +16,19 @@
 
 
 
-<div class="profile-cont" x-show.transition="showing=='profilesettings'">
+<div class="settings-form-wrapper" x-show.transition="showing=='profilesettings'">
     <h2>Profile Settings</h2>
+    <div class="logoutwrapper">
         <h3>Not {{$user->username}}?</h3>
         <button class="round-btn logout-btn"  href="#" @click="logoutopen = true">Logout</button>
+        </div>
         <div class="modal-wrapper" style="display: none;" x-show="logoutopen">
             <div class="delete-modal" style="display: none;" x-show.transition="logoutopen;$nextTick(()=>document.getElementById('logout-button').focus());" @click.away="logoutopen=false">
                 <form id="logoutform" action="{{ route('logout') }}" method="POST" style="display: none;" method="POST" @click.away="logoutopen=false"> @csrf</form>     
                 <h2>Logout</h2>
                 <p>Are you sure?</p>
                 <div class="delete-modal-actions">
-                <button id="logout-button" class="round-btn" @click="document.getElementById('logoutform').submit()" type="submit" value="logout">Logout</button>
+                <button id="logout-button" class="round-btn" @click="document.getElementById('logoutform').submit()" class="round-btn"  type="submit" value="logout">Logout</button>
                 <button class="round-btn cancel-btn" @click="logoutopen = false">Cancel</button>
                 </div>
             </div>
@@ -61,10 +63,10 @@
         data-server-errors='{!! json_encode($errors->get('newpassword_confirmation'))!!}' x-bind:class="{'invalid':newpassword_confirmation.errorMessage}" >
         <p class="error-message"  x-show.transition.in="newpassword_confirmation.errorMessage" x-text="newpassword_confirmation.errorMessage"></p>
       
-        <input type="submit">
+        <input class="round-btn" type="submit">
       </form>
 </div>
-<div class="profile-cont" x-show.transition="showing=='plantsettings'">
+<div class="settings-form-wrapper" x-show.transition="showing=='plantsettings'">
     <h2>Planting Settings</h2>
     <form class="settingsform" x-data="{wateringtoggled:{{$user->rain_toggle ?'true':'false'}}}" action="/planting-change" method="POST">
         @csrf
@@ -93,7 +95,7 @@
     <input class="rain-toggle" x-model="wateringtoggled" id="rain-toggle" name="rain_toggle" type="checkbox" />
     <label class="rain-frequency-label" for="rain-frequency" ><h3>Watering Frequency</h3></label>
     <div> Every <input x-bind:disabled="!wateringtoggled" value="{{old('rain_frequency', $user->rain_frequency)}}" max="10" class="rain-frequency" id="rain-frequency" name="rain_frequency" type="number" step="1"> days</div>
-    <input type="submit">
+    <input class="round-btn" type="submit">
     </form>
     
 </div>
