@@ -16,7 +16,7 @@
             @if($plant->badge)
             @svg('ready-to-plant',['class'=>'badge'])
             @endif
-        <h3><div>
+        <div class="plant-text-content"><div>
             <span class="plant-title">{{$plant->quantity}} {{ucfirst($plant->type)}}</span>
             @if($plant->state=="old")
             <span class="plant-subtitle">{{$plant->formattedState}}</span>
@@ -29,7 +29,7 @@
             @else
             <span class="plant-subtitle">Ready to harvest:<br/> <span class="plant-subtitle-date">{{$plant->estimatedHarvestDate}}</span></span>
             @endif
-        </div></h3>
+        </div></div>
         @svg($plant->svgPath . $plant->svgNum)
         <div class="progress-bar">
             <div class="progress" style="width: {{$plant->progress}}%;"><span>{{$plant->progress}}</span></div>
@@ -41,10 +41,10 @@
         <a href="{{route('newplant')}}" style="animation-name: fadeIn{{min(count($plants)+1,10)}};">
             <div class="plant-container">
                 <div class="plant-container-inner">
-            <h3 class="new-plant-button-title"><div>
+            <div class="plant-text-content new-plant-button-title"><div>
                 <span class="plant-title">New plant</span>
                 <span class="plant-subtitle"></span></span>
-            </div></h3>
+            </div></div>
             <div class=new-plant-plus>+</div>
             <div class="progress-bar new-plant-bar">
                 <div class="progress" style="width: 0%;"><span></span></div>

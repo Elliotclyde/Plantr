@@ -1,5 +1,4 @@
 const mix = require('laravel-mix');
-
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management
@@ -11,7 +10,10 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
-    .postCss('resources/css/app.css', 'public/css', [
-        //
+ var calc = require("postcss-calc")
+
+mix.postCss('resources/css/app.postcss', 'public', [
+    require('postcss-for'),
+    require('postcss-nesting'),
+    calc({selectors: true})
     ]);

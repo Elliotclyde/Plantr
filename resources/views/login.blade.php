@@ -4,7 +4,7 @@
 
     @section('content')
     <h1 class="hidden-heading">Plantr 2.0 Login</h1>
-    <form  action="/login" method="POST" x-data="form()" x-init="init()" @focusout="change" @input="change" @submit="submit">
+    <form class="authform" action="/login" method="POST" x-data="form()" x-init="init()" @focusout="change" @input="change" @submit="submit">
         <p class="logo-no-header"><span class="logo-text-no-header">Plantr</span><x-svg-plantrlogo/></p>
     @csrf
         <label for="username">Username</label>

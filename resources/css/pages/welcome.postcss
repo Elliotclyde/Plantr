@@ -1,0 +1,79 @@
+.welcome-hero {
+    position: relative;
+    width: 100%;
+    padding-top: 62.5%;
+    background: url(/images/plantr-hero-2-1600-1000-optim.jpg) left center/100%
+        100% no-repeat;
+
+    @media only screen and (max-width: 800px) {
+        padding-top: 100%;
+        background: url(/images/plantr-hero-2-768-768-optim.jpg) left
+            center/100% 100% no-repeat;
+        background: url(/images/plantr-hero-2-768-768-webp.webp) left
+            center/100% 100% no-repeat;
+    }
+
+    & .tagline-container {
+        color: var(--green-white);
+        position: absolute;
+        top: 1em;
+        left: 4rem;
+        @media only screen and (max-width: 800px) {
+            left: 1rem;
+        }
+    }
+
+    & .tagline {
+        font-size: 4em;
+        font-family: "aadam", "serif";
+        animation-name: fadeIn1;
+    }
+    & .sub-tagline {
+        font-size: 1.7em;
+        animation-name: fadeIn2;
+    }
+    & .sub-tagline::before {
+        content: "\A";
+        white-space: pre;
+    }
+}
+
+.activity-cards {
+    display: flex;
+    justify-content: space-around;
+    @media only screen and (max-width: 550px) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    & .activity-cont {
+        width: 31vw;
+        position: relative;
+        animation-duration: 2s;
+        animation-timing-function: linear;
+        animation-direction: forwards;
+        box-shadow: 0px 3px 5px var(--dark-green);
+        @media only screen and (max-width: 550px) {
+            width: 80%;
+            margin-bottom: 1rem;
+        }
+    }
+    & .selling-point {
+        font-family: aadam;
+        color: var(--green-white);
+        width: 70%;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 33vw;
+        font-size: 1.25em;
+        text-align: center;
+        @media only screen and (max-width: 800px) {
+            font-size: 1em;
+        }
+        @media only screen and (max-width: 550px) {
+            top: 90vw;
+            font-size: 1.75em;
+        }
+    }
+}

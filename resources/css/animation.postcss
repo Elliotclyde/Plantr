@@ -1,0 +1,76 @@
+@for $i from 1 to 10 {
+    @keyframes fadeIn$(i) {
+        0% {
+            opacity: 0;
+            transform: translateX(-10px);
+        }
+        calc(( $i -1) * 10 )% {
+            opacity: 0;
+            transform: translateX(-10px);
+        }
+        calc($i * 10 )% {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        100% {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+}
+
+@keyframes grow {
+    0% {
+        transform: scale(0.2);
+    }
+
+    85% {
+        transform: scale(1);
+    }
+}
+
+@keyframes cf3FadeInOut {
+    0% {
+        opacity: 0;
+    }
+
+    3% {
+        opacity: 1;
+    }
+
+    33% {
+        opacity: 1;
+    }
+
+    36% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes bounce {
+    0% {
+        transform: translateY(0px) scale(1);
+    }
+    25% {
+        transform: translateY(-7px) scale(1.05);
+    }
+    50% {
+        transform: translateY(0px) scale(1);
+    }
+    75% {
+        transform: translateY(-7px) scale(1.05);
+    }
+    100% {
+        transform: translateY(0px) scale(1);
+    }
+}
+
+.animwrapper {
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-direction: forwards;
+}
