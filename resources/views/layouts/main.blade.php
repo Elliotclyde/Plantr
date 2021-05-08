@@ -34,8 +34,7 @@
         </header>
     <div class="container" id="container">
             @yield('content')
-    </div>
-    @if(session('raining'))
+            @if(session('raining'))
         <div id="raining" class="raining-modal-container" id="raining-modal-container">
             <div class="raining-modal">
                 <h3 >Time to water your plants</h3>
@@ -44,6 +43,8 @@
                 </form>
             </div>
         </div>@endif
+    </div>
+    
     <footer>Copyright Hugh Haworth {{now()->year}} </footer>
     <script src="/scripts/scripts.js " ></script>
     </body>
